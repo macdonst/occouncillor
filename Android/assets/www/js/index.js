@@ -57,7 +57,7 @@ var councillors = {
     loadCouncillors: function() {
         var that = this;
         var request = new XMLHttpRequest();
-        request.open("GET", "file:///android_asset/www/data/elected_officials.json", true);
+        request.open("GET", "data/elected_officials.json", true);
         request.onreadystatechange = function() {
             if (request.readyState == 4) {
                 if (request.status == 200 || request.status == 0) {
@@ -71,19 +71,32 @@ var councillors = {
     },
     listCouncillors: function() {
         var list = document.createElement("ul");
+        list.addEventListener("click", this.showCouncillor, true);
         var main = document.getElementById("main");
         for(var i = 0; i < this.items.length; i++) {
             var councillor = this.items[i];
-            console.log(JSON.stringify(councillor));
+            //console.log(JSON.stringify(councillor));
             var item = document.createElement("li");
-            //console.log(JSON.stringify(this.items[i]));
             item.setAttribute("id", councillor["District ID"]);
-            //item.appendChild(document.createTextNode("id" + i));
             item.appendChild(document.createTextNode(
                 councillor["First name"] + " " + councillor["Last name"] +
                 " - " + councillor["District name"]));
             list.appendChild(item);
+            var panel = document.createElement("div");
+            panel.appendChild(document.createTextNode(
+                councillor["First name"] + " " + councillor["Last name"] +
+                " - " + councillor["District name"]));
+            panel.setAttribute("style", "display: none");
+            panel.setAttribute("id", "panel"+councillor["District ID"]);
+            document.body.appendChild(panel);
         }
         main.appendChild(list);
+    },    
+    showCouncillor: function(evt) {
+        console.log("I got clicked:" + evt.srcElement.id);
+        var panel = document.getElementById("panel"+evt.srcElement.id);
+        panel.setAttribute("style", "display: block");
+        var main = document.getElementById("main");
+        main.setAttribute("style", "display: none");
     }
 };
