@@ -54,6 +54,7 @@ var app = {
 
 var councillors = {
     items: [],
+    currentPanel: "main",
     loadCouncillors: function() {
         var that = this;
         var request = new XMLHttpRequest();
@@ -98,5 +99,18 @@ var councillors = {
         panel.setAttribute("style", "display: block");
         var main = document.getElementById("main");
         main.setAttribute("style", "display: none");
+        currentPanel = "panel"+evt.srcElement.id;
+        var that = this;
+        document.addEventListener("backbutton", councillors.showMain, false);
+    }, 
+    showMain: function() {
+        console.log("did we get the back button event");
+        var panel = document.getElementById(currentPanel);
+        panel.setAttribute("style", "display: none");
+        var main = document.getElementById("main");
+        main.setAttribute("style", "display: block");
+        currentPanel = "main";
+        var that=this;
+        document.removeEventListener("backbutton", councillors.showMain, false);
     }
 };
