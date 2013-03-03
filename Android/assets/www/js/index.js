@@ -121,8 +121,8 @@ var HungryFox = {
     applyTemplate: function(data, template) {
         for (var prop in data) {
             if (template.indexOf("{{" + prop + "}}") !== -1) {
-                console.log("found " + prop);
-                template = template.replace("{{" + prop + "}}", data[prop], "g");
+                var re = new RegExp("\{\{" + prop + "\}\}", "g");
+                template = template.replace(re, data[prop]);
             }
         }
         return template;  
