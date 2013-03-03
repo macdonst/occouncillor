@@ -71,6 +71,7 @@ var councillors = {
         request.send();
     },
     listCouncillors: function() {
+        var text = document.getElementById("councillor-template").innerHTML;
         var list = document.createElement("ul");
         list.addEventListener("click", this.showCouncillor, true);
         var main = document.getElementById("main");
@@ -83,13 +84,7 @@ var councillors = {
                 councillor["First name"] + " " + councillor["Last name"] +
                 " - " + councillor["District name"]));
             list.appendChild(item);
-            var panel = document.createElement("div");
-            panel.appendChild(document.createTextNode(
-                councillor["First name"] + " " + councillor["Last name"] +
-                " - " + councillor["District name"]));
-            panel.setAttribute("style", "display: none");
-            panel.setAttribute("id", "panel"+councillor["District ID"]);
-            document.body.appendChild(panel);
+            document.body.appendChild(this.createPanel(councillor, text));
         }
         main.appendChild(list);
     },    
@@ -112,5 +107,24 @@ var councillors = {
         currentPanel = "main";
         var that=this;
         document.removeEventListener("backbutton", councillors.showMain, false);
+    },
+    createPanel: function(councillor, text) {
+        var panel = document.createElement("div");
+        panel.setAttribute("style", "display: none");
+        panel.setAttribute("id", "panel"+councillor["District ID"]);
+        panel.innerHTML = HungryFox.applyTemplate(councillor, text);
+        return panel;
     }
+};
+
+var HungryFox = {
+    applyTemplate: function(data, template) {
+        for (var prop in data) {
+            if (template.indexOf("{{" + prop + "}}") !== -1) {
+                console.log("found " + prop);
+                template = template.replace("{{" + prop + "}}", data[prop], "g");
+            }
+        }
+        return template;  
+    }  
 };
