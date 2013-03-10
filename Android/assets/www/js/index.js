@@ -114,6 +114,34 @@ var councillors = {
         panel.setAttribute("id", "panel"+councillor["District ID"]);
         panel.innerHTML = HungryFox.applyTemplate(councillor, text);
         return panel;
+    },
+    saveContact: function(id) {
+        for (var i=0; i<this.items.length; i++) {
+            var councillor = this.items[i];
+            if (councillor["District ID"] == id) {
+                console.log("found councillor");
+                console.log("district = " + councillor["District ID"] + " i = " + i);
+                console.log(councillor["Last name"]);
+                var contact = navigator.contacts.create();
+                contact.displayName = councillor["First name"] + " " + councillor["Last name"];
+                contact.name = new ContactName();
+                contact.name.formatted = contact.displayName;
+                contact.name.givenName = councillor["First name"];
+                contact.name.familyName = councillor["Last name"];
+                contact.phoneNumbers = [];
+                contact.phoneNumbers.push(new ContactField("work", councillor["Phone"], false));
+                contact.phoneNumbers.push(new ContactField("fax", councillor["Fax"], false));
+                contact.emails = [];
+                contact.emails.push(new ContactField("work", councillor["Email"], false));
+                contact.urls = [];
+                contact.urls.push(new ContactField("work", councillor["Personal URL"], false));
+                //contact.photos = [];
+                //contact.photos.push(new ContactField("work", councillor["Photo URL"], false));
+                
+                contact.save();
+                break;
+            }
+        }
     }
 };
 
