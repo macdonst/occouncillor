@@ -22,13 +22,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
         <title>Hello World</title>
     </head>
     <body>
         <div id="main">
         </div>
-        <div>
+        <div id="whereami">
             <button onclick="whereami()">What Ward?</button>
         </div>
         <script type="text/javascript" src="cordova-2.5.0rc1.js"></script>
@@ -40,15 +40,62 @@
         </script>
         
         <div id="councillor-template" style="display: none">
-            <img src="{{Photo URL}}" align="left">
-            <b>{{Elected office}}</b> {{First name}} {{Last name}}<br>
-            <b>{{District name}}</b><br/>
-            Phone: <a href="tel:{{Phone}}">{{Phone}}</a><br/>
-            FAX: {{Fax}}<br/>
-            Email: <a href="mailto:{{Email}}">{{Email}}</a><br/>
-            Web page: <a href="{{URL}}">{{URL}}</a><br/>
-            Personal page: <a href="{{Personal URL}}">{{Personal URL}}</a><br/>
-            <button onclick="councillors.saveContact({{District ID}})" label="Add to contact list">Add to contact list</button>
+            <div class="header2">
+                <h2>Councillor Details</h2>
+            </div>
+            <div id="wrapper">
+                <div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="{{Photo URL}}" class="councillorPic" align="left">
+                                </td>
+                                <td class="councillorDetails">
+                                    <h3 class="fullName">{{First name}} {{Last name}}</h3>
+                                    <p class="councillorTitle">{{Elected office}}</p>
+                                    <p class="ward">{{District name}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <a href="tel:{{Phone}}">
+                            <p class="line1">Phone</p>
+                            <p class="line2">{{Phone}}</p>
+                            <img src="icons/hdpi/phone.png" class="action-icon"/>
+                        </a>
+                    </li>
+                    <li>
+                        <p class="line1">FAX</p>
+                        <p class="line2">{{Fax}}</p>
+                    </li>
+                    <li>
+                        <a href="mailto:{{Email}}">
+                            <p class="line1">Email</p>
+                            <p class="line2">{{Email}}</p>
+                            <img src="icons/hdpi/mail.png" class="action-icon"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{URL}}">
+                            <p class="line1">Web Page</p>
+                            <p class="line2">{{URL}}</p>
+                            <img src="icons/hdpi/web.png" class="action-icon"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{Personal URL}}">
+                            <p class="line1">Personal Page</p>
+                            <p class="line2">{{Personal URL}}</p>
+                            <img src="icons/hdpi/web.png" class="action-icon"/>
+                        </a>
+                    </li>
+                    <button onclick="councillors.saveContact({{District ID}})" label="Add to contact list">Add to contact list</button>
+                </ul>
+            </div>
         </div>
     </body>
 </html>
