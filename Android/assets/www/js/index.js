@@ -98,33 +98,63 @@ var councillors = {
         main.appendChild(list);
     },    
     showCouncillor: function(evt) {
+        console.log("current: " + councillors.currentPanel);
         var srcElement = evt.srcElement;
         while(srcElement.tagName != "LI") {
             srcElement = srcElement.parentNode;
         }
         var panel = document.getElementById("panel"+srcElement.id);
+        panel.setAttribute("class", "councillor-template");
         panel.setAttribute("style", "display: block");
         var main = document.getElementById("main");
         main.setAttribute("style", "display: none");
-        currentPanel = "panel"+srcElement.id;
+        councillors.currentPanel = "panel"+srcElement.id;
         var that = this;        
         document.addEventListener("backbutton", councillors.showMain, false);
         
-        // hide that button 
-        document.getElementById("whereami").setAttribute("style", "display: none");
+        // setup the add contact button
+        document.getElementById("add").setAttribute("style", "display: block");
+        document.getElementById("addPerson").setAttribute("onclick", "councillors.saveContact('" + srcElement.id + "')");
+        
+        // show the back button in top bar
+        document.getElementById("backIcon").setAttribute("style", "display: table-cell");
+        
+        window.scrollTo(0,0);
     }, 
     showMain: function() {
         console.log("did we get the back button event");
-        var panel = document.getElementById(currentPanel);
+        console.log("current: " + councillors.currentPanel);
+        var panel = document.getElementById(councillors.currentPanel);
         panel.setAttribute("style", "display: none");
         var main = document.getElementById("main");
         main.setAttribute("style", "display: block");
-        currentPanel = "main";
+        councillors.currentPanel = "main";
         var that=this;
         document.removeEventListener("backbutton", councillors.showMain, false);
 
-        // show that button 
-        document.getElementById("whereami").setAttribute("style", "display: block");
+        // setup the add contact button
+        document.getElementById("add").setAttribute("style", "display: none");
+        
+        // hide the back button in top bar
+        document.getElementById("backIcon").setAttribute("style", "display: none");
+
+        // setup tabs        
+        document.getElementById("cBtn").setAttribute("style", "border-bottom: 4px solid #2489ce");
+        document.getElementById("fBtn").setAttribute("style", "border-bottom: 4px solid white");
+    },
+    showFind: function() {
+        console.log("current: " + councillors.currentPanel);
+        var main = document.getElementById(councillors.currentPanel);
+        main.setAttribute("style", "display: none");
+        var find = document.getElementById("find");
+        find.setAttribute("style", "display: block");
+        councillors.currentPanel = "find";
+
+        document.removeEventListener("backbutton", councillors.showMain, false);
+        
+        // setup tabs        
+        document.getElementById("cBtn").setAttribute("style", "border-bottom: 4px solid white");
+        document.getElementById("fBtn").setAttribute("style", "border-bottom: 4px solid #2489ce");
     },
     createPanel: function(councillor, text) {
         var panel = document.createElement("div");
@@ -134,6 +164,8 @@ var councillors = {
         return panel;
     },
     saveContact: function(id) {
+        console.log("save contact");
+        console.log("id = " + id);
         for (var i=0; i<this.items.length; i++) {
             var councillor = this.items[i];
             if (councillor["District ID"] == id) {
@@ -156,7 +188,9 @@ var councillors = {
                 //contact.photos = [];
                 //contact.photos.push(new ContactField("work", councillor["Photo URL"], false));
                 
-                contact.save();
+                contact.save(function() {
+                    navigator.notification.alert(contact.displayName, null, "Contact Saved");
+                });
                 break;
             }
         }
