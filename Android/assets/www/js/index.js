@@ -151,6 +151,9 @@ var councillors = {
         councillors.currentPanel = "find";
 
         document.removeEventListener("backbutton", councillors.showMain, false);
+
+        // setup the add contact button
+        document.getElementById("add").setAttribute("style", "display: none");
         
         // setup tabs        
         document.getElementById("cBtn").setAttribute("style", "border-bottom: 4px solid white");
