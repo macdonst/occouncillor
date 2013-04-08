@@ -167,6 +167,28 @@ h3 {
     color: #666666;
 }
 
+#main li .line_all {
+    font-size: 22px;
+    margin-top:12px;
+    margin-bottom:12px;
+    padding-top:12px;
+    padding-bottom:12px;
+    padding-left: 12px;
+    font-weight: bold;
+}
+
+.councillor-list li .line_all {
+    font-size: 22px;
+    margin-top:12px;
+    margin-bottom:12px;
+    padding-top:12px;
+    padding-bottom:12px;
+    padding-left: 12px;
+    font-weight: bold;
+}
+
+
+
 #main li .bubble {
     clear:both;
     position: absolute;
