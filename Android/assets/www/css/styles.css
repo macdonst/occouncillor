@@ -17,7 +17,7 @@ ul
 body {
 
 	width: : 100%;
-	background: #DCDCDC;
+    background: #FFFFFF;
 }
 
 h3 {
@@ -56,12 +56,13 @@ h3 {
 .councillor-template {
     //position: absolute;
     margin-top: 96px;
-    width: 100%
+    width: 100%;
+    background: #DCDCDC;
 }
 
 #find {
     margin-top: 96px;
-    width: 100%
+    width: 100%;
 }
 
 #main ul {
@@ -320,3 +321,24 @@ h3 {
 .councillorPic img {
     float: left;
 }
+
+.holoBtn {
+    padding: 5px;
+    border:1px solid #555555;
+    color:#3E3E3E ;
+    text-shadow:0  0  0  #ffffff ;
+    background:#f3f3f3 ;
+    width: 98%;
+    align: center;
+}
+
+.addressLine {
+    font-size: 22px;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-top:12px;
+    padding-bottom:0px;
+    padding-left: 12px;
+    font-weight: bold;    
+}
+

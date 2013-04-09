@@ -22,6 +22,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <!-- meta name="viewport" content="width=480, target-densitydpi=device-dpi" / -->
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
         <link rel="stylesheet" type="text/css" href="css/actionbar.css" />
         <title>Hello World</title>
@@ -60,7 +61,19 @@
         </div>
         
         <div id="find" style="display:none">
-            <button onclick="whereami()">What Ward?</button>
+            <br/>
+            <p>Find your city councillor by:</p>
+            <center>
+                <button class="holoBtn" onclick="whereami()">Using Your Current Location</button>
+            </center>
+            <p>- OR -</p>
+            <p>By postal code:</p>
+            <p class="addressLine">Postal Code</p>
+            <input id="postcode" type="text"/>
+            <br/>
+            <center>
+                <button class="holoBtn" onclick="findMe()">Search</button>
+            </center>
         </div>
         
         <script type="text/javascript" src="cordova-2.5.0rc1.js"></script>

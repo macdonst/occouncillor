@@ -36,6 +36,8 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         console.log("we got a deviceready");
+        console.log("width = " + window.innerWidth);
+        console.log("height = " + window.innerHeight);
         app.receivedEvent('deviceready');
         councillors.loadCouncillors();
     },
@@ -103,24 +105,31 @@ var councillors = {
         while(srcElement.tagName != "LI") {
             srcElement = srcElement.parentNode;
         }
-        var panel = document.getElementById("panel"+srcElement.id);
+        councillors.showCouncillorByWard(srcElement.id);
+    }, 
+    showCouncillorByWard: function(id) {
+        var panel = document.getElementById("panel"+id);
         panel.setAttribute("class", "councillor-template");
         panel.setAttribute("style", "display: block");
-        var main = document.getElementById("main");
+        var main = document.getElementById(councillors.currentPanel);
         main.setAttribute("style", "display: none");
-        councillors.currentPanel = "panel"+srcElement.id;
+        councillors.currentPanel = "panel"+id;
         var that = this;        
         document.addEventListener("backbutton", councillors.showMain, false);
         
         // setup the add contact button
         document.getElementById("add").setAttribute("style", "display: block");
-        document.getElementById("addPerson").setAttribute("onclick", "councillors.saveContact('" + srcElement.id + "')");
+        document.getElementById("addPerson").setAttribute("onclick", "councillors.saveContact('" + id + "')");
         
         // show the back button in top bar
         document.getElementById("backIcon").setAttribute("style", "display: table-cell");
+
+        // setup tabs        
+        document.getElementById("cBtn").setAttribute("style", "border-bottom: 4px solid #2489ce");
+        document.getElementById("fBtn").setAttribute("style", "border-bottom: 4px solid white");
         
         window.scrollTo(0,0);
-    }, 
+    },
     showMain: function() {
         console.log("did we get the back button event");
         console.log("current: " + councillors.currentPanel);

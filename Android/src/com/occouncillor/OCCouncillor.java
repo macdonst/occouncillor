@@ -31,6 +31,8 @@ public class OCCouncillor extends DroidGap
         // Set by <content src="index.html" /> in config.xml
         super.loadUrl(Config.getStartUrl());
         //super.loadUrl("file:///android_asset/www/index.html")
+        //this.appView.getSettings().setUseWideViewPort(true);
+        //this.appView.getSettings().setLoadWithOverviewMode(true);  
     }
 }
 
