@@ -150,6 +150,8 @@ var councillors = {
         // setup tabs        
         document.getElementById("cBtn").setAttribute("style", "border-bottom: 4px solid #2489ce");
         document.getElementById("fBtn").setAttribute("style", "border-bottom: 4px solid white");
+        
+        window.scrollTo(0,0);
     },
     showFind: function() {
         console.log("current: " + councillors.currentPanel);
