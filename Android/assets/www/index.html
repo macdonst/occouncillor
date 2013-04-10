@@ -23,21 +23,23 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <!-- meta name="viewport" content="width=480, target-densitydpi=device-dpi" / -->
-        <link rel="stylesheet" type="text/css" href="css/styles.css" />
-        <link rel="stylesheet" type="text/css" href="css/actionbar.css" />
+        <link rel="stylesheet" media='screen and (max-width: 699px)' type="text/css" href="css/styles.css" />
+        <link rel='stylesheet' media='screen and (min-width: 700px)' href='css/styles-hdpi.css' />
+        <link rel="stylesheet" media='screen and (max-width: 699px)' type="text/css" href="css/actionbar.css" />
+        <link rel='stylesheet' media='screen and (min-width: 700px)' href='css/actionbar-hdpi.css' />
         <title>Hello World</title>
     </head>
     <body>
         <header id="action-bar">
             <ul id="left">
-                <li><a id="backIcon" style="display: none" onclick="councillors.showMain()"><img src="img/action-up.png" width="14" height="14" alt="Up"></a></li>
-                <li><a onclick="councillors.showMain()"><img src="img/app-logo.png" width="35" height="48" alt="Home"></a></li>
+                <li><a id="backIcon" style="display: none" onclick="councillors.showMain()"><img src="img/action-up.png" class="upIcon" alt="Up"></a></li>
+                <li><a onclick="councillors.showMain()"><img src="img/app-logo.png" class="appIcon" alt="Home"></a></li>
                 <li><a onclick="councillors.showMain()">OC Councillor</a></li>
             </ul>
         
             <ul id="right">
-                <li id="add" style="display: none"><a id="addPerson" href="#"><img src="icons/hdpi/addPerson.png" width="32" height="32" alt="Add"></a></li>
-                <li id="search" style="display: none"><a id="searchCouncillor" onclick="searchCouncillor()" href="#"><img src="icons/hdpi/search.png" width="32" height="32" alt="Search"></a></li>
+                <li id="add" style="display: none"><a id="addPerson" href="#"><img src="icons/hdpi/addPerson.png" class="actionBarIcon" alt="Add"></a></li>
+                <li id="search" style="display: none"><a id="searchCouncillor" onclick="searchCouncillor()" href="#"><img src="icons/hdpi/search.png" class="actionBarIcon" alt="Search"></a></li>
             </ul>
         
             <!-- nav id="action-bar-menu">
@@ -105,7 +107,7 @@
                         <a href="tel:{{Phone}}">
                             <p class="line1">Phone</p>
                             <p class="line2">{{Phone}}</p>
-                            <img src="icons/hdpi/phone.png" class="action-icon"/>
+                            <img src="icons/hdpi/phone.png" class="actionIcon"/>
                         </a>
                     </li>
                     <li>
@@ -116,28 +118,28 @@
                         <a href="mailto:{{Email}}">
                             <p class="line1">Email</p>
                             <p class="line2">{{Email}}</p>
-                            <img src="icons/hdpi/mail.png" class="action-icon"/>
+                            <img src="icons/hdpi/mail.png" class="actionIcon"/>
                         </a>
                     </li>
                     <li>
                         <a href="{{URL}}">
                             <p class="line_all">Ottawa.ca Web Page</p>
                             <!--<p class="line2">{{URL_Short}}</p> -->
-                            <img src="icons/hdpi/web.png" class="action-icon"/>
+                            <img src="icons/hdpi/web.png" class="actionIcon"/>
                         </a>
                     </li>
                     <li>
                         <a href="{{Personal URL}}">
                             <p class="line1">Personal Page</p>
                             <p class="line2">{{Personal URL}}</p>
-                            <img src="icons/hdpi/web.png" class="action-icon"/>
+                            <img src="icons/hdpi/web.png" class="actionIcon"/>
                         </a>
                     </li>
                     <li>
                         <a href="{{Twitter}}">
                             <p class="line1">Twitter</p>
                             <p class="line2">{{Twitter}}</p>
-                            <img src="icons/hdpi/twitter.png" class="action-icon"/>
+                            <img src="icons/hdpi/twitter.png" class="actionIcon"/>
                         </a>
                     </li>
                 </ul>
