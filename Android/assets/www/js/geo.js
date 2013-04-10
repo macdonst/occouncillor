@@ -1,5 +1,10 @@
+var wardID = 0;
+var wardName = "";
+
 var whereami = function() {
+    console.log("whereami called");
     navigator.geolocation.getCurrentPosition(function(position) {
+        console.log("got position");
         var request = new XMLHttpRequest();
         request.open("GET", "http://represent.opennorth.ca/boundaries/?contains=" + 
             position.coords.latitude + "," + position.coords.longitude, true);
@@ -11,8 +16,16 @@ var whereami = function() {
                     for (var i=0; i<response.objects.length; i++) {
                         if (response.objects[i].url.indexOf("/boundaries/ottawa-wards") == 0) {
                             console.log("Ward ID = " + response.objects[i].external_id);
+                            wardID = response.objects[i].external_id;
                             console.log("Ward Name = " + response.objects[i].name);
-                            councillors.showCouncillorByWard(response.objects[i].external_id);
+                            wardName = response.objects[i].name;
+                            //councillors.showCouncillorByWard(response.objects[i].external_id);
+                            var curLoc = document.getElementById("currentLocation");
+                            if (wardID !== 0) {
+                                curLoc.innerText = "Ward " + wardID + " - " + wardName;
+                            } else {
+                                curLoc.innerText = "wardName";
+                            }
                             break;
                         }                        
                     }
@@ -25,8 +38,8 @@ var whereami = function() {
     }, { enableHighAccuracy: true });
 }
 
-var findMe = function() {
-    var postcode = document.getElementById("postcode").value.toUpperCase();
+var findMe = function(postcode) {
+    //var postcode = document.getElementById("postcode").value.toUpperCase();
     postcode = postcode.replace(/\s/g, '');
     console.log("postcode = " + postcode);
     var request = new XMLHttpRequest();
@@ -46,4 +59,13 @@ var findMe = function() {
         }
     }
     request.send();      
+}
+
+var searchCouncillor = function() {
+    var postcode = document.getElementById("postcode").value.toUpperCase();
+    if (postcode !== "" && postcode !== "POSTAL CODE") {
+        findMe(postcode);
+    } else {
+        councillors.showCouncillorByWard(wardID);
+    }
 }

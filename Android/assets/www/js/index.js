@@ -39,6 +39,7 @@ var app = {
         console.log("width = " + window.innerWidth);
         console.log("height = " + window.innerHeight);
         app.receivedEvent('deviceready');
+        whereami();
         councillors.loadCouncillors();
     },
     // Update DOM on a Received Event
@@ -120,6 +121,7 @@ var councillors = {
         // setup the add contact button
         document.getElementById("add").setAttribute("style", "display: block");
         document.getElementById("addPerson").setAttribute("onclick", "councillors.saveContact('" + id + "')");
+        document.getElementById("search").setAttribute("style", "display: none");
         
         // show the back button in top bar
         document.getElementById("backIcon").setAttribute("style", "display: table-cell");
@@ -143,6 +145,7 @@ var councillors = {
 
         // setup the add contact button
         document.getElementById("add").setAttribute("style", "display: none");
+        document.getElementById("search").setAttribute("style", "display: none");
         
         // hide the back button in top bar
         document.getElementById("backIcon").setAttribute("style", "display: none");
@@ -165,6 +168,7 @@ var councillors = {
 
         // setup the add contact button
         document.getElementById("add").setAttribute("style", "display: none");
+        document.getElementById("search").setAttribute("style", "display: block");
         
         // setup tabs        
         document.getElementById("cBtn").setAttribute("style", "border-bottom: 4px solid white");

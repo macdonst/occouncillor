@@ -37,6 +37,7 @@
         
             <ul id="right">
                 <li id="add" style="display: none"><a id="addPerson" href="#"><img src="icons/hdpi/addPerson.png" width="32" height="32" alt="Add"></a></li>
+                <li id="search" style="display: none"><a id="searchCouncillor" onclick="searchCouncillor()" href="#"><img src="icons/hdpi/search.png" width="32" height="32" alt="Search"></a></li>
             </ul>
         
             <!-- nav id="action-bar-menu">
@@ -62,18 +63,15 @@
         
         <div id="find" style="display:none">
             <br/>
-            <p>Find your city councillor by:</p>
-            <center>
-                <button class="holoBtn" onclick="whereami()">Use Current Location</button>
-            </center>
-            <p>- OR -</p>
-            <p>By postal code:</p>
+            <p class="addressLine">Current Location</p>
+            <p id="currentLocation">
+                Unable to retrieve location
+            </p>
+            <p>&nbsp;</p>
             <p class="addressLine">Postal Code</p>
-            <input id="postcode" type="text"/>
+            <input id="postcode" class="postalCodeInput" value="Postal Code" type="text"
+                onclick="this.value='';this.onclick='';this.style.color='#000';"/>
             <br/>
-            <center>
-                <button class="holoBtn" onclick="findMe()">Search</button>
-            </center>
         </div>
         
         <script type="text/javascript" src="cordova-2.5.0rc1.js"></script>

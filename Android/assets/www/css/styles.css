@@ -62,7 +62,9 @@ h3 {
 
 #find {
     margin-top: 96px;
-    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    //width: 100%;
 }
 
 #main ul {
@@ -350,8 +352,7 @@ h3 {
     color:#3E3E3E ;
     text-shadow:0  0  0  #ffffff ;
     background:#f3f3f3 ;
-    width: 98%;
-    align: center;
+    width: 94%;
 }
 
 .addressLine {
@@ -361,6 +362,23 @@ h3 {
     padding-top:12px;
     padding-bottom:0px;
     padding-left: 12px;
-    font-weight: bold;    
+    font-weight: bold;   
+    border-bottom: 3px solid black; 
 }
 
+.postalCodeInput {
+    border-top: 4px solid white; 
+    border-left: 4px solid white; 
+    border-right: 4px solid white; 
+    border-bottom: 4px solid #DCDCDC; 
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+    color: #666666;
+    width: 94%;
+}
+
+#currentLocation {
+    text-align: center;
+    font-size: 22px;
+}
