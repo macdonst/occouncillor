@@ -127,8 +127,8 @@ var councillors = {
         document.getElementById("backIcon").setAttribute("style", "display: table-cell");
 
         // setup tabs        
-        document.getElementById("cBtn").setAttribute("style", "border-bottom: 4px solid #2489ce");
-        document.getElementById("fBtn").setAttribute("style", "border-bottom: 4px solid white");
+        document.getElementById("cBtn").setAttribute("style", "border-bottom: 8px solid #2489ce");
+        document.getElementById("fBtn").setAttribute("style", "border-bottom: 8px solid black");
         
         window.scrollTo(0,0);
     },
@@ -151,8 +151,8 @@ var councillors = {
         document.getElementById("backIcon").setAttribute("style", "display: none");
 
         // setup tabs        
-        document.getElementById("cBtn").setAttribute("style", "border-bottom: 4px solid #2489ce");
-        document.getElementById("fBtn").setAttribute("style", "border-bottom: 4px solid white");
+        document.getElementById("cBtn").setAttribute("style", "border-bottom: 8px solid #2489ce");
+        document.getElementById("fBtn").setAttribute("style", "border-bottom: 8px solid black");
         
         window.scrollTo(0,0);
     },
@@ -171,8 +171,8 @@ var councillors = {
         document.getElementById("search").setAttribute("style", "display: block");
         
         // setup tabs        
-        document.getElementById("cBtn").setAttribute("style", "border-bottom: 4px solid white");
-        document.getElementById("fBtn").setAttribute("style", "border-bottom: 4px solid #2489ce");
+        document.getElementById("cBtn").setAttribute("style", "border-bottom: 8px solid black");
+        document.getElementById("fBtn").setAttribute("style", "border-bottom: 8px solid #2489ce");
     },
     createPanel: function(councillor, text) {
         var panel = document.createElement("div");
