@@ -20,6 +20,8 @@
 package com.occouncillor;
 
 import android.os.Bundle;
+import android.view.View;
+
 import org.apache.cordova.*;
 
 public class OCCouncillor extends DroidGap
@@ -30,6 +32,7 @@ public class OCCouncillor extends DroidGap
         super.onCreate(savedInstanceState);
         // Set by <content src="index.html" /> in config.xml
         super.loadUrl(Config.getStartUrl());
+        this.appView.setOverScrollMode(View.OVER_SCROLL_NEVER);
     }
 }
 
