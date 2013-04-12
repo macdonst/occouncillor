@@ -12,6 +12,18 @@ var app = {
         console.log("bind");
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.getElementById("searchBtn").addEventListener('click', searchCouncillor, false);
+        Hammer(document.body).on("swipeleft", function() {
+            console.log('you swiped left!');
+            if (councillors.currentPanel == "find") {
+                councillors.showMain();
+            }
+        });
+        Hammer(document.body).on("swiperight", function() {
+            console.log('you swiped right!');
+            if (councillors.currentPanel != "find") {
+                councillors.showFind();
+            }
+        });
     },
     // deviceready Event Handler
     //
