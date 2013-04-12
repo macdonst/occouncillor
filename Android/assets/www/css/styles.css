@@ -299,12 +299,15 @@ h3 {
 }
 
 .holoBtn {
-    padding: 5px;
+    text-align: center;
+    padding: 10px;
     border:1px solid #555555;
     color:#3E3E3E ;
     text-shadow:0  0  0  #ffffff ;
     background:#f3f3f3 ;
-    width: 94%;
+    width: 100%;
+    //position:absolute; 
+    //bottom:0;
 }
 
 .addressLine {
