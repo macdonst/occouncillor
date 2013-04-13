@@ -11,7 +11,19 @@ var app = {
     bindEvents: function() {
         console.log("bind");
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        
+        
+        // Click events
         document.getElementById("searchBtn").addEventListener('click', searchCouncillor, false);
+        document.getElementById("left").addEventListener('click', councillors.showMain, false);
+        document.getElementById("cBtn").addEventListener('click', councillors.showMain, false);
+        document.getElementById("fBtn").addEventListener('click', councillors.showFind, false);
+        document.getElementById("searchCouncillor").addEventListener('click', searchCouncillor, false);
+        
+        this.value='';this.onclick='';this.style.color='#000';
+        
+        
+        // Swipe events
         Hammer(document.body).on("swiperight", function() {
             if (councillors.currentPanel == "find") {
                 councillors.showMain();
