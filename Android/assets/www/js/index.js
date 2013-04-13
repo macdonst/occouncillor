@@ -12,14 +12,12 @@ var app = {
         console.log("bind");
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.getElementById("searchBtn").addEventListener('click', searchCouncillor, false);
-        Hammer(document.body).on("swipeleft", function() {
-            console.log('you swiped left!');
+        Hammer(document.body).on("swiperight", function() {
             if (councillors.currentPanel == "find") {
                 councillors.showMain();
             }
         });
-        Hammer(document.body).on("swiperight", function() {
-            console.log('you swiped right!');
+        Hammer(document.body).on("swipeleft", function() {
             if (councillors.currentPanel != "find") {
                 councillors.showFind();
             }
