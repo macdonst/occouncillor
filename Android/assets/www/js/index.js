@@ -12,6 +12,22 @@ var app = {
         console.log("bind");
         document.addEventListener('deviceready', this.onDeviceReady, false);
         
+        // Fast click
+        new FastClick(document.body);
+        
+        // Swipe events
+        Hammer(document.body).on("swiperight", function() {
+            console.log("swiperight");
+            if (councillors.currentPanel == "find") {
+                councillors.showMain();
+            }
+        });
+        Hammer(document.body).on("swipeleft", function() {
+            console.log("swipeleft");
+            if (councillors.currentPanel != "find") {
+                councillors.showFind();
+            }
+        });
         
         // Click events
         document.getElementById("searchBtn").addEventListener('click', searchCouncillor, false);
@@ -19,21 +35,6 @@ var app = {
         document.getElementById("cBtn").addEventListener('click', councillors.showMain, false);
         document.getElementById("fBtn").addEventListener('click', councillors.showFind, false);
         document.getElementById("searchCouncillor").addEventListener('click', searchCouncillor, false);
-        
-        this.value='';this.onclick='';this.style.color='#000';
-        
-        
-        // Swipe events
-        Hammer(document.body).on("swiperight", function() {
-            if (councillors.currentPanel == "find") {
-                councillors.showMain();
-            }
-        });
-        Hammer(document.body).on("swipeleft", function() {
-            if (councillors.currentPanel != "find") {
-                councillors.showFind();
-            }
-        });
     },
     // deviceready Event Handler
     //
