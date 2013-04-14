@@ -201,8 +201,6 @@ h3 {
     position: absolute;
     right: 12px;
     margin-top: -60px;
-    height: 48px;
-    width: 48px;    
 }
 
 .councillor-list li .action-icon {
@@ -212,6 +210,9 @@ h3 {
 }
 
 .actionIcon {
+    position: absolute;
+    right: 12px;
+    margin-top: -60px;
     height: 48px;
     width: 48px;
 }
