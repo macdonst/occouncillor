@@ -177,6 +177,15 @@ h3 {
     color: #666666;
 }
 
+.councillor-list li .line2web {
+    font-size: 26px;
+    margin-top:8px;
+    margin-bottom:0px;
+    padding-left: 24px;
+    padding-bottom: 24px;
+    color: #666666;
+}
+
 #main li .line_all {
     font-size: 24px;
     margin-top:24px;
