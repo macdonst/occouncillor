@@ -44,6 +44,10 @@ var app = {
         console.log("we got a deviceready");
         console.log("width = " + window.innerWidth);
         console.log("height = " + window.innerHeight);
+        
+        // load language strings
+        app.loadStrings();
+
         app.receivedEvent('deviceready');
         whereami();
         councillors.loadCouncillors();
@@ -51,13 +55,23 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
-        //var listeningElement = parentElement.querySelector('.listening');
-        //var receivedElement = parentElement.querySelector('.received');
-
-        //listeningElement.setAttribute('style', 'display:none;');
-        //receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+    loadStrings: function() {        
+        navigator.globalization.getLocaleName(
+            function (locale) {
+                console.log("locale = " + locale.value);
+                // default to english if not canadian french
+                if (locale.value != "fr_CA") {
+                    locale.value = "en_US";
+                }
+                XHR("i18n/strings-"+locale.value+".json", function(data) {
+                    AppStrings = JSON.parse(data);                       
+                });
+            },
+            function () {console.log('Error getting locale\n');}
+        );
     }
 };
 
@@ -66,18 +80,10 @@ var councillors = {
     currentPanel: "main",
     loadCouncillors: function() {
         var that = this;
-        var request = new XMLHttpRequest();
-        request.open("GET", "data/elected_officials.json", true);
-        request.onreadystatechange = function() {
-            if (request.readyState == 4) {
-                if (request.status == 200 || request.status == 0) {
-                    //console.log(JSON.stringify(this));
-                    that.items = JSON.parse(request.responseText);
-                    that.listCouncillors();
-                }
-            }
-        }
-        request.send();
+        XHR("data/elected_officials.json", function(data) {
+            that.items = JSON.parse(data);
+            that.listCouncillors();
+        });
     },
     listCouncillors: function() {
         var text = document.getElementById("councillor-template").innerHTML;
@@ -221,6 +227,8 @@ var councillors = {
     }
 };
 
+var AppStrings = {};
+
 var HungryFox = {
     applyTemplate: function(data, template) {
         for (var prop in data) {
@@ -229,6 +237,33 @@ var HungryFox = {
                 template = template.replace(re, data[prop]);
             }
         }
+        for (var prop in AppStrings) {
+            console.log("prop = " + prop);
+            if (template.indexOf("{{" + prop + "}}") !== -1) {
+                var re = new RegExp("\{\{" + prop + "\}\}", "g");
+                template = template.replace(re, AppStrings[prop]);
+            }
+        }
         return template;  
     }  
 };
+
+var XHR = function(url, success, fail) {
+    var request = new XMLHttpRequest();
+    request.open("GET", url, true);
+    request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+            if (request.status == 200 || request.status == 0) {
+                //console.log("response = " + request.responseText);
+                if (typeof success == "function") {
+                    success(request.responseText);
+                }
+            } else {
+                if (typeof fail == "function") {
+                    fail();
+                }
+            }
+        }
+    }
+    request.send();
+}
