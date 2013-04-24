@@ -24,11 +24,11 @@
             </ul>
         </header>        
         
-        <div class="tabBar">            
+        <div id="tabbar" class="tabBar">            
             <table>
                 <tr>
-                    <td id="cBtn" style="border-bottom: 8px solid #2489ce">Councillors</td>
-                    <td id="fBtn">Search</td>
+                    <td id="cBtn" style="border-bottom: 8px solid #2489ce">{{councillors}}</td>
+                    <td id="fBtn">{{search}}</td>
                 </tr>
             </table>            
         </div>
@@ -38,17 +38,17 @@
         
         <div id="find" style="display:none">
             <br/>
-            <p class="addressLine">Current Location</p>
+            <p class="addressLine">{{curloc}}</p>
             <p id="currentLocation">
-                Unable to retrieve location
+                {{unable}}
             </p>
             <p>&nbsp;</p>
-            <p class="addressLine">Postal Code</p>
-            <input id="postcode" class="postalCodeInput" value="Postal Code" type="text"
+            <p class="addressLine">{{postalcode}}</p>
+            <input id="postcode" class="postalCodeInput" value="{{postalcode}}" type="text"
                 onclick="this.value='';this.onclick='';this.style.color='#000';"/>
             <br/>
             <p>&nbsp;</p>
-            <button id="searchBtn" class="holoBtn">Search</button>
+            <button id="searchBtn" class="holoBtn">{{search}}</button>
         </div>
         
         <script type="text/javascript" src="cordova-2.5.0rc1.js"></script>

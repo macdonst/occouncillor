@@ -30,11 +30,8 @@ var app = {
         });
         
         // Click events
-        document.getElementById("searchBtn").addEventListener('click', searchCouncillor, false);
         document.getElementById("left").addEventListener('click', councillors.showMain, false);
-        document.getElementById("cBtn").addEventListener('click', councillors.showMain, false);
-        document.getElementById("fBtn").addEventListener('click', councillors.showFind, false);
-        document.getElementById("searchCouncillor").addEventListener('click', searchCouncillor, false);
+        document.getElementById("search").addEventListener('click', searchCouncillor, false);
     },
     // deviceready Event Handler
     //
@@ -67,11 +64,24 @@ var app = {
                     locale.value = "en_US";
                 }
                 XHR("i18n/strings-"+locale.value+".json", function(data) {
-                    AppStrings = JSON.parse(data);                       
+                    AppStrings = JSON.parse(data);  
+                    app.localize();                     
                 });
             },
             function () {console.log('Error getting locale\n');}
         );
+    },
+    localize: function() {
+        var find = document.getElementById("find");
+        find.innerHTML = HungryFox.applyTemplate({}, find.innerHTML);
+
+        var tabbar = document.getElementById("tabbar");
+        tabbar.innerHTML = HungryFox.applyTemplate({}, tabbar.innerHTML);
+        
+        // bind click events
+        document.getElementById("searchBtn").addEventListener('click', searchCouncillor, false);
+        document.getElementById("cBtn").addEventListener('click', councillors.showMain, false);
+        document.getElementById("fBtn").addEventListener('click', councillors.showFind, false);        
     }
 };
 
@@ -219,7 +229,7 @@ var councillors = {
                 //contact.photos.push(new ContactField("work", councillor["Photo URL"], false));
                 
                 contact.save(function() {
-                    navigator.notification.alert(contact.displayName, null, "Contact Saved");
+                    navigator.notification.alert(contact.displayName, null, AppStrings.contactsaved);
                 });
                 break;
             }
@@ -236,9 +246,8 @@ var HungryFox = {
                 var re = new RegExp("\{\{" + prop + "\}\}", "g");
                 template = template.replace(re, data[prop]);
             }
-        }
+        } 
         for (var prop in AppStrings) {
-            console.log("prop = " + prop);
             if (template.indexOf("{{" + prop + "}}") !== -1) {
                 var re = new RegExp("\{\{" + prop + "\}\}", "g");
                 template = template.replace(re, AppStrings[prop]);
