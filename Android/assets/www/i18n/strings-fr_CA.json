@@ -7,13 +7,13 @@
     "ottawaweb": "Ottawa.ca Site Web",
     "personalweb": "Site Web",
     "twitter": "Twitter",
-    "curloc": "Current Location",
+    "curloc": "Emplacement Actual",
     "postalcode": "Code Postal"
-    "unable": "Unable to retrieve location",
-    "contactsaved": "Contact Saved",
-    "notvalidpostal": " is not a valid postal code for the City of Ottawa",
-    "invalidpostal": "Invalid Postal Code",
-    "nowardinfo": "No Ward Info",
-    "cannotdetermine": "Cannot determine councillor for postal code: ",
+    "unable": "Incapable de d&eacute;terminer l'emplacement",
+    "contactsaved": "Contact Sauvegard&eacute;",
+    "notvalidpostal": " n'est pas un code postal valide pour la ville d'Ottawa",
+    "invalidpostal": "Code Postal Invalide",
+    "nowardinfo": "Pas d'information sur le quartier",
+    "cannotdetermine": "Impossible de d&eacute;terminer qui est le conseiller pour ce code postal : ",
     "ward": "Quartier"
 }
