@@ -59,11 +59,12 @@ var app = {
         navigator.globalization.getLocaleName(
             function (locale) {
                 console.log("locale = " + locale.value);
+                var lang = "en_US";
                 // default to english if not canadian french
-                if (locale.value != "fr_CA") {
-                    locale.value = "en_US";
+                if (locale.value == "fr_CA" || locale.value == "fr_FR") { 
+                    lang = "fr_CA";
                 }
-                XHR("i18n/strings-"+locale.value+".json", function(data) {
+                XHR("i18n/strings-"+lang+".json", function(data) {
                     AppStrings = JSON.parse(data);  
                     app.localize();                     
                 });
