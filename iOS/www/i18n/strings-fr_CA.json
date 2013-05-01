@@ -1,0 +1,19 @@
+{
+    "councillors": "Conseillers",
+    "search": "Recherche",
+    "phone": "T&eacute;l&eacute;phone",
+    "fax": "T&eacute;l&eacute;copieur",
+    "email": "Courriel",
+    "ottawaweb": "Ottawa.ca Site Web",
+    "personalweb": "Site Web",
+    "twitter": "Twitter",
+    "curloc": "Emplacement Actual",
+    "postalcode": "Code Postal",
+    "unable": "Incapable de d&eacute;terminer l'emplacement",
+    "contactsaved": "Contact Sauvegard&eacute;",
+    "notvalidpostal": " n'est pas un code postal valide pour la ville d'Ottawa",
+    "invalidpostal": "Code Postal Invalide",
+    "nowardinfo": "Pas d'information sur le quartier",
+    "cannotdetermine": "Impossible de d&eacute;terminer qui est le conseiller pour ce code postal : ",
+    "ward": "Quartier"
+}

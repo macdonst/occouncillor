@@ -1,0 +1,19 @@
+{
+    "councillors": "Councillors",
+    "search": "Search",
+    "phone": "Phone",
+    "fax": "FAX",
+    "email": "Email",
+    "ottawaweb": "Ottawa.ca Web Page",
+    "personalweb": "Personal Page",
+    "twitter": "Twitter",
+    "curloc": "Current Location",
+    "postalcode": "Postal Code",
+    "unable": "Unable to retrieve location",
+    "contactsaved": "Contact Saved",
+    "notvalidpostal": " is not a valid postal code for the City of Ottawa",
+    "invalidpostal": "Invalid Postal Code",
+    "nowardinfo": "No Ward Info",
+    "cannotdetermine": "Cannot determine councillor for postal code: ",
+    "ward": "Ward"
+}

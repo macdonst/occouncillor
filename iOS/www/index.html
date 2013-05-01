@@ -1,38 +1,123 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        <link rel="stylesheet" media='screen and (max-width: 480px)' type="text/css" href="css/styles.css" />
+        <link rel='stylesheet' media='screen and (min-width: 481px)' href='css/styles-hdpi.css' />
+        <link rel="stylesheet" media='screen and (max-width: 480px)' type="text/css" href="css/actionbar.css"/>
+        <link rel='stylesheet' media='screen and (min-width: 481px)' href='css/actionbar-hdpi.css' />
     </head>
     <body>
+        <header id="action-bar">
+            <ul id="left">
+                <li><a id="backIcon" style="display: none"><img src="img/action-up.png" class="upIcon" alt="Up"></a></li>
+                <li><a><img src="img/app-logo.png" class="appIcon" alt="Home"></a></li>
+                <li><a>OC Councillor</a></li>
+            </ul>
+        
+            <ul id="right">
+                <li id="add" style="display: none"><a id="addPerson" href="#"><img src="icons/hdpi/addPerson.png" class="actionBarIcon" alt="Add"></a></li>
+                <li id="search" style="display: none"><a><img src="icons/hdpi/search.png" class="actionBarIcon" alt="Search"></a></li>
+            </ul>
+        </header>        
+        
+        <div id="tabbar" class="tabBar">            
+            <table>
+                <tr>
+                    <td id="cBtn" style="border-bottom: 8px solid #2489ce">{{councillors}}</td>
+                    <td id="fBtn">{{search}}</td>
+                </tr>
+            </table>            
+        </div>
+        
         <div id="main">
         </div>
+        
+        <div id="find" style="display:none">
+            <br/>
+            <p class="addressLine">{{curloc}}</p>
+            <p id="currentLocation">
+                {{unable}}
+            </p>
+            <p class="addressLine">{{postalcode}}</p>
+            <input id="postcode" class="postalCodeInput" value="{{postalcode}}" type="text"
+                onclick="this.value='';this.onclick='';this.style.color='#000';"/>
+            <br/>
+            <button id="searchBtn" class="holoBtn">{{search}}</button>
+        </div>
+        
         <script type="text/javascript" src="cordova-2.5.0rc1.js"></script>
+        <script type="text/javascript" src="js/lib/fastclick.js"></script>
+        <script type="text/javascript" src="js/lib/hammer.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/geo.js"></script>
         <script type="text/javascript">
             console.log("calling app init");
             app.initialize();
         </script>
+        
+        <div id="councillor-template" class="councillor-template" style="display: none">
+            <div id="wrapper">
+                <div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="{{Photo URL}}" class="councillorPic" align="left">
+                                </td>
+                                <td class="councillorDetails">
+                                    <h3 class="fullName">{{First name}} {{Last name}}</h3>
+                                    <p class="councillorTitle">{{Elected office}}</p>
+                                    <p class="ward">{{District name}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <ul class="councillor-list" style="background: #FFFFFF">
+                    <li>
+                        <a href="tel:{{Phone}}">
+                            <p class="line1">{{phone}}</p>
+                            <p class="line2">{{Phone}}</p>
+                            <img src="icons/hdpi/phone.png" class="actionIcon"/>
+                        </a>
+                    </li>
+                    <li>
+                        <p class="line1">{{fax}}</p>
+                        <p class="line2">{{Fax}}</p>
+                    </li>
+                    <li>
+                        <a href="mailto:{{Email}}">
+                            <p class="line1">{{email}}</p>
+                            <p class="line2">{{Email}}</p>
+                            <img src="icons/hdpi/mail.png" class="actionIcon"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{URL}}">
+                            <p class="line_all">{{ottawaweb}}</p>
+                            <p class="line2web">{{URL}}</p>
+                            <img src="icons/hdpi/web.png" class="actionIcon"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{Personal URL}}">
+                            <p class="line1">{{personalweb}}</p>
+                            <p class="line2">{{Personal URL}}</p>
+                            <img src="icons/hdpi/web.png" class="actionIcon"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{Twitter}}">
+                            <p class="line1">{{twitter}}</p>
+                            <p class="line2">{{Twitter}}</p>
+                            <img src="icons/hdpi/twitter.png" class="actionIcon"/>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </body>
 </html>
