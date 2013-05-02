@@ -28,12 +28,16 @@
             <table>
                 <tr>
                     <td id="cBtn" style="border-bottom: 8px solid #2489ce">{{councillors}}</td>
+                    <td id="wBtn">{{wards}}</td>
                     <td id="fBtn">{{search}}</td>
                 </tr>
             </table>            
         </div>
         
         <div id="main">
+        </div>
+        
+        <div id="wards" style="display:none">
         </div>
         
         <div id="find" style="display:none">
@@ -48,7 +52,8 @@
                 onclick="this.value='';this.onclick='';this.style.color='#000';"/>
             <br/>
             <p>&nbsp;</p>
-            <button id="searchBtn" class="holoBtn">{{search}}</button>
+            <button id="searchBtn" class="holoBtn">{{go}}</button>
+            <!--<button id="searchBtn" class="holoBtn">{{search}}</button>-->
         </div>
         
         <script type="text/javascript" src="cordova-2.5.0rc1.js"></script>
@@ -122,5 +127,38 @@
                 </ul>
             </div>
         </div>
+        <div id="ward-template" class="ward-template" style="display:none">
+            <div id="wrapper">
+                <div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="{{Photo URL}}" class="councillorPic" align="left">
+                                </td>
+                                <td class="councillorDetails">                                    
+                                    <h3 class="fullName">Ward Information</h3>
+                                    <p class="ward"> {{ward}} {{District ID}} - {{District name}} </p>
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                 
+                <ul class="ward-list" style="background: #FFFFFF" >
+                    <li>
+                        <p class="line1">Population</p>
+                        <p class="line2">{{Population}}</p>                                               
+                    </li>
+                    <li>
+                        <p class="line1">Growth (2006-2011)</p>
+                        <p class="line2">{{Growth}}</p>
+                    </li>
+                    
+                </ul>
+                
+              </div>
+         </div>
     </body>
 </html>

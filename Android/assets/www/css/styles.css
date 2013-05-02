@@ -53,7 +53,7 @@ h3 {
     border-bottom: 8px solid black;
 }
 
-#main {
+#main, #wards {
     //position: absolute;
     //top: 0px;
     margin-top: 96px;
@@ -74,7 +74,7 @@ h3 {
     //width: 100%;
 }
 
-#main ul {
+#main ul, #wards ul {
     clear: both;
     list-style-type: none;
     background: #FFFFFF;
@@ -86,7 +86,7 @@ h3 {
     background: #FFFFFF !important;
 }
 
-#main li {
+#main li, #wards li {
     clear: both;
     padding-top: 10px;
     padding-bottom: 4px;
@@ -108,7 +108,7 @@ h3 {
     display:block;
 }
 
-#main li .list-icon {
+#main li .list-icon, #wards li .list-icon {
     float: left;
     margin-right: 12px;
     height: 80px; /* TODO: use 100x100 pics instead of scaling */ 
@@ -129,7 +129,7 @@ h3 {
 	padding-top: 20px;
 }
 
-#main li a { 
+#main li a, #wards li a { 
     text-decoration:none;
     display: block;
     margin:0px;
@@ -141,8 +141,8 @@ h3 {
     margin:0px;
 }
 
-#main li .line1 {
-    font-size: 22px;
+#main li .line1, #wards li .line1  {
+    font-size: 44px;
     margin-top:0px;
     margin-bottom:0px;
     padding-top:12px;
@@ -161,8 +161,8 @@ h3 {
     font-weight: bold;
 }
 
-#main li .line2 {
-    margin-top:4px;
+#main li .line2, #wards li .line2 {
+    margin-top:8px;
     margin-bottom:0px;
     padding-left: 12px;
     padding-bottom: 12px;
@@ -186,7 +186,7 @@ h3 {
     color: #666666;
 }
 
-#main li .line_all {
+#main li .line_all, #wards li .line_all  {
     font-size: 22px;
     margin-top:12px;
     margin-bottom:12px;
@@ -206,7 +206,7 @@ h3 {
     font-weight: bold;
 }
 
-#main li .action-icon {
+#main li .action-icon, #wards li .action-icon {
     position: absolute;
     right: 12px;
     margin-top: -60px;

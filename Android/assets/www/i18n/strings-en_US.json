@@ -15,5 +15,7 @@
     "invalidpostal": "Invalid Postal Code",
     "nowardinfo": "No Ward Info",
     "cannotdetermine": "Cannot determine councillor for postal code: ",
-    "ward": "Ward"
+    "ward": "Ward",
+    "wards": "Wards",
+    "go": "Go!"
 }

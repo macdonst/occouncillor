@@ -16,16 +16,22 @@ var app = {
         new FastClick(document.body);
         
         // Swipe events
-        Hammer(document.body).on("swiperight", function() {
+        Hammer(document.body).on("swipeleft", function() {
             console.log("swiperight");
             if (councillors.currentPanel == "find") {
+                councillors.showWards();
+               
+            } else if (councillors.currentPanel == "wards") {
                 councillors.showMain();
             }
         });
-        Hammer(document.body).on("swipeleft", function() {
+        Hammer(document.body).on("swiperight", function() {
             console.log("swipeleft");
-            if (councillors.currentPanel != "find") {
+            
+            if (councillors.currentPanel == "wards") {
                 councillors.showFind();
+            } else if (councillors.currentPanel == "main") {
+                councillors.showWards();
             }
         });
         
@@ -48,6 +54,7 @@ var app = {
         app.receivedEvent('deviceready');
         whereami();
         councillors.loadCouncillors();
+        councillors.loadWards();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -81,18 +88,28 @@ var app = {
         // bind click events
         document.getElementById("searchBtn").addEventListener('click', searchCouncillor, false);
         document.getElementById("cBtn").addEventListener('click', councillors.showMain, false);
+        document.getElementById("wBtn").addEventListener('click', councillors.showWards, false);
         document.getElementById("fBtn").addEventListener('click', councillors.showFind, false);        
     }
 };
 
 var councillors = {
     items: [],
+    wards: [],
     currentPanel: "main",
     loadCouncillors: function() {
         var that = this;
         XHR("data/elected_officials.json", function(data) {
             that.items = JSON.parse(data);
             that.listCouncillors();
+        });
+    },
+    loadWards: function() {
+        var wards = this;
+        XHR("data/ward_info.json", function(data) {
+        	JSON.stringify(data);
+            wards.wards = JSON.parse(data);
+            wards.listWards();
         });
     },
     listCouncillors: function() {
@@ -121,6 +138,42 @@ var councillors = {
             document.body.appendChild(this.createPanel(councillor, text));
         }
         main.appendChild(list);
+    },
+    listWards: function() {
+        var text = document.getElementById("ward-template").innerHTML;
+        var list = document.createElement("ul");
+        list.addEventListener("click", this.showWard, true);
+        var wardList = document.getElementById("wards");
+        for(var i = 1; i < this.wards.length; i++) {
+          var j = 0;
+          var found = 0;
+          while ((j < this.wards.length) && (found==0) ) {  
+           
+            var current = this.wards[j];
+            console.log("i = " + i + ", current = " + current["District ID"]);
+			console.log("ParseInt : " + parseInt(current["District ID"]) );
+            if (parseInt(current["District ID"]) == i) {   
+             found = 1;   
+            var ward = this.wards[j];
+            console.log(" ListWards() i=" + i + " , ward = " + ward["District ID"]);
+            var councillor = this.items[j];
+            console.log("WARD = " + JSON.stringify(ward));        
+            var item = document.createElement("li");
+            item.setAttribute("id", ward["District ID"]);
+            var line1 = document.createElement("p");
+            line1.setAttribute("class", "line1");
+            line1.appendChild(document.createTextNode(AppStrings.ward + " " + ward["District ID"] + " -  " + ward["District name"] ));
+         
+            item.appendChild(line1);
+          
+            list.appendChild(item);
+            document.body.appendChild(this.createWardPanel(councillor, ward, text));
+            
+            }  // if item at j = id of i 
+            j++;
+        }
+        }
+        wardList.appendChild(list);
     },    
     showCouncillor: function(evt) {
         console.log("current: " + councillors.currentPanel);
@@ -150,20 +203,23 @@ var councillors = {
 
         // setup tabs        
         document.getElementById("cBtn").setAttribute("style", "border-bottom: 8px solid #2489ce");
+        document.getElementById("wBtn").setAttribute("style", "border-bottom: 8px solid black");
         document.getElementById("fBtn").setAttribute("style", "border-bottom: 8px solid black");
         
         window.scrollTo(0,0);
     },
     showMain: function() {
         console.log("did we get the back button event");
-        console.log("current: " + councillors.currentPanel);
+        console.log("showMain current: " + councillors.currentPanel);
         var panel = document.getElementById(councillors.currentPanel);
         panel.setAttribute("style", "display: none");
         var main = document.getElementById("main");
         main.setAttribute("style", "display: block");
         councillors.currentPanel = "main";
+        console.log("showMain current: " + councillors.currentPanel);
         var that=this;
         document.removeEventListener("backbutton", councillors.showMain, false);
+        document.removeEventListener("backbutton", councillors.showWards, false);
 
         // setup the add contact button
         document.getElementById("add").setAttribute("style", "display: none");
@@ -174,19 +230,49 @@ var councillors = {
 
         // setup tabs        
         document.getElementById("cBtn").setAttribute("style", "border-bottom: 8px solid #2489ce");
+         document.getElementById("wBtn").setAttribute("style", "border-bottom: 8px solid black");
+        document.getElementById("fBtn").setAttribute("style", "border-bottom: 8px solid black");
+        
+        window.scrollTo(0,0);
+    },
+    showWards: function() {
+        console.log("did we get the back button event");        
+        console.log("showWards current: " + councillors.currentPanel);
+        var panel = document.getElementById(councillors.currentPanel);
+        panel.setAttribute("style", "display: none");
+        var wards = document.getElementById("wards");
+        wards.setAttribute("style", "display: block");
+        councillors.currentPanel = "wards";
+        console.log("showWards current: " + councillors.currentPanel);
+        var that=this;
+        document.removeEventListener("backbutton", councillors.showMain, false);
+        document.removeEventListener("backbutton", councillors.showWards, false);
+
+        // setup the add contact button
+        document.getElementById("add").setAttribute("style", "display: none");
+        document.getElementById("search").setAttribute("style", "display: none");
+        
+        // hide the back button in top bar
+        document.getElementById("backIcon").setAttribute("style", "display: none");
+
+        // setup tabs        
+        document.getElementById("cBtn").setAttribute("style", "border-bottom: 8px solid black");
+        document.getElementById("wBtn").setAttribute("style", "border-bottom: 8px solid #2489ce");
         document.getElementById("fBtn").setAttribute("style", "border-bottom: 8px solid black");
         
         window.scrollTo(0,0);
     },
     showFind: function() {
-        console.log("current: " + councillors.currentPanel);
+        console.log("showFind current: " + councillors.currentPanel);
         var main = document.getElementById(councillors.currentPanel);
         main.setAttribute("style", "display: none");
         var find = document.getElementById("find");
         find.setAttribute("style", "display: block");
         councillors.currentPanel = "find";
+        console.log("showFind current: " + councillors.currentPanel);
 
         document.removeEventListener("backbutton", councillors.showMain, false);
+        document.removeEventListener("backbutton", councillors.showWards, false);
 
         // setup the add contact button
         document.getElementById("add").setAttribute("style", "display: none");
@@ -194,7 +280,20 @@ var councillors = {
         
         // setup tabs        
         document.getElementById("cBtn").setAttribute("style", "border-bottom: 8px solid black");
+        document.getElementById("wBtn").setAttribute("style", "border-bottom: 8px solid black");
         document.getElementById("fBtn").setAttribute("style", "border-bottom: 8px solid #2489ce");
+    },
+    createWardPanel: function(councillor, ward, text) {
+        var panel = document.createElement("div");
+        console.log("createWardPanel : ward :" + ward["District ID"] + ", counc: " + councillor["District ID"]); 
+        panel.setAttribute("style", "display: none");
+        panel.setAttribute("id", "wardPanel"+ward["District ID"]);
+        var temp = HungryFox.applyTemplate(councillor, text);
+        console.log("createWardPanel - first pass: \n" + temp);
+        panel.innerHTML = HungryFox.applyTemplate(ward, temp);
+        console.log("\n\ncreateWardPanel - second pass: \n" + panel.innerHTML);
+        
+        return panel;
     },
     createPanel: function(councillor, text) {
         var panel = document.createElement("div");
@@ -203,6 +302,40 @@ var councillors = {
         panel.innerHTML = HungryFox.applyTemplate(councillor, text);
         return panel;
     },
+    showWard: function(evt) {
+        console.log("current: " + councillors.currentPanel);
+        var srcElement = evt.srcElement;
+        while(srcElement.tagName != "LI") {
+            srcElement = srcElement.parentNode;
+        }
+        councillors.showWardById(srcElement.id);
+    }, 
+    showWardById: function(id) {
+        var panel = document.getElementById("wardPanel"+id);
+        panel.setAttribute("class", "ward-template");
+        panel.setAttribute("style", "display: block");
+        var main = document.getElementById(councillors.currentPanel);
+        main.setAttribute("style", "display: none");
+        councillors.currentPanel = "wardPanel"+id;
+        var that = this;        
+        document.addEventListener("backbutton", councillors.showWards, false);
+        
+        // setup the add contact button
+        document.getElementById("add").setAttribute("style", "display: none");
+        //document.getElementById("addPerson").setAttribute("onclick", "councillors.saveContact('" + id + "')");
+        document.getElementById("search").setAttribute("style", "display: none");
+        
+        // show the back button in top bar
+        document.getElementById("backIcon").setAttribute("style", "display: table-cell");
+
+        // setup tabs        
+        document.getElementById("cBtn").setAttribute("style", "border-bottom: 8px solid #black");
+        document.getElementById("wBtn").setAttribute("style", "border-bottom: 8px solid #2489ce");
+        document.getElementById("fBtn").setAttribute("style", "border-bottom: 8px solid black");
+        
+        window.scrollTo(0,0);
+    },
+    
     saveContact: function(id) {
         console.log("save contact");
         console.log("id = " + id);

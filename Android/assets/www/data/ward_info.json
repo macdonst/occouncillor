@@ -1,0 +1,146 @@
+[
+    {
+        "District name": "City of Ottawa",
+        "Population": "123456",
+        "District ID": "0",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Cumberland",
+        "Population": "123456",
+        "District ID": "19",
+        "Growth": "26.5%"
+    },        
+    {
+		"District name": "Innes",
+        "Population": "123456",
+        "District ID": "2",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Capital",
+        "Population": "123456",
+        "District ID": "17",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "College",
+        "Population": "123456",
+        "District ID": "8",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Rideau-Rockcliffe",
+        "Population": "123456",
+        "District ID": "13",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Gloucester-Southgate",
+        "Population": "123456",
+        "District ID": "10",
+        "Growth": "26.5%"
+    },        
+    {
+		"District name": "Gloucester-South Nepean",
+        "Population": "123456",
+        "District ID": "22",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Knoxdale Merivale",
+        "Population": "123456",
+        "District ID": "9",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "West Carleton-March",
+        "Population": "123456",
+        "District ID": "5",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Rideau Vanier",
+        "Population": "123456",
+        "District ID": "12",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Barrhaven",
+        "Population": "123456",
+        "District ID": "3",
+        "Growth": "26.5%"
+    },        
+    {
+		"District name": "Kitchissippi",
+        "Population": "123456",
+        "District ID": "15",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Somerset",
+        "Population": "1234566",
+        "District ID": "14",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Kanata South",
+        "Population": "123456",
+        "District ID": "23",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Alta Vista",
+        "Population": "123456",
+        "District ID": "18",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "River",
+        "Population": "123456",
+        "District ID": "16",
+        "Growth": "26.5%"
+    },
+	{
+		"District name": "Rideau-Goulbourn",
+        "Population": "123456",
+        "District ID": "21",
+        "Growth": "26.5%"
+    },     
+    {
+		"District name": "Orleans",
+        "Population": "123456",
+        "District ID": "1",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Stittsville",
+        "Population": "123456",
+        "District ID": "6",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Bay",
+        "Population": "123456",
+        "District ID": "7",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Beacon Hill-Cyrville",
+        "Population": "123456",
+        "District ID": "11",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Osgoode",
+        "Population": "123456",
+        "District ID": "20",
+        "Growth": "26.5%"
+    },
+    {
+		"District name": "Kanata North",
+        "Population": "123456",
+        "District ID": "4",
+        "Growth": "26.5%"
+    }
+]
