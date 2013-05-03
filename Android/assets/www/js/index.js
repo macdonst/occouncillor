@@ -118,6 +118,16 @@ var councillors = {
             line2.appendChild(document.createTextNode(councillor["District name"]))
             item.appendChild(line1);
             item.appendChild(line2);
+            
+            var line3 = document.createElement("p");
+            line3.setAttribute("class", "line3");
+            if (councillor["District ID"] === "0") {
+            	line3.appendChild(document.createTextNode("Mayor")); 
+             } else {
+            	line3.appendChild(document.createTextNode("Ward " + councillor["District ID"]  ));            
+            }
+            
+            item.appendChild(line3);
             list.appendChild(item);
             document.body.appendChild(this.createPanel(councillor, text));
         }
@@ -201,6 +211,19 @@ var councillors = {
         var panel = document.createElement("div");
         panel.setAttribute("style", "display: none");
         panel.setAttribute("id", "panel"+councillor["District ID"]);
+        if (councillor["District ID"] === "0") {
+        // Mayor
+        	console.log("createPanel: mayor");
+        } else {
+           var str = "{\"Elected office\": \"" + AppStrings.councillor + " - " + AppStrings.ward + " " + councillor['District ID'] + "\"} " ;
+          
+           var data = JSON.parse(str);
+           var temp = HungryFox.applyTemplate(data, text); 
+           panel.innerHTML = HungryFox.applyTemplate(councillor, temp);
+   
+           return panel;
+        }
+
         panel.innerHTML = HungryFox.applyTemplate(councillor, text);
         return panel;
     },
