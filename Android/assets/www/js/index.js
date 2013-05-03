@@ -131,7 +131,12 @@ var councillors = {
             line1.appendChild(document.createTextNode(councillor["First name"] + " " + councillor["Last name"]))
             var line2 = document.createElement("p");
             line2.setAttribute("class", "line2");
-            line2.appendChild(document.createTextNode(councillor["District name"]))
+            
+			if (councillor["District ID"] === "0") {
+            	line2.appendChild(document.createTextNode(councillor["District name"]));
+            } else {
+            	line2.appendChild(document.createTextNode(councillor["District name"] + " - " + AppStrings.ward + " " + councillor["District ID"] ));
+            }                        
             item.appendChild(line1);
             item.appendChild(line2);
             list.appendChild(item);
@@ -150,24 +155,23 @@ var councillors = {
           while ((j < this.wards.length) && (found==0) ) {  
            
             var current = this.wards[j];
-            console.log("i = " + i + ", current = " + current["District ID"]);
-			console.log("ParseInt : " + parseInt(current["District ID"]) );
+  
             if (parseInt(current["District ID"]) == i) {   
-             found = 1;   
-            var ward = this.wards[j];
-            console.log(" ListWards() i=" + i + " , ward = " + ward["District ID"]);
-            var councillor = this.items[j];
-            console.log("WARD = " + JSON.stringify(ward));        
-            var item = document.createElement("li");
-            item.setAttribute("id", ward["District ID"]);
-            var line1 = document.createElement("p");
-            line1.setAttribute("class", "line1");
-            line1.appendChild(document.createTextNode(AppStrings.ward + " " + ward["District ID"] + " -  " + ward["District name"] ));
+            	found = 1;   
+				var ward = this.wards[j];
+           
+            	var councillor = this.items[j];
+           		//console.log("WARD = " + JSON.stringify(ward));        
+            	var item = document.createElement("li");
+            	item.setAttribute("id", ward["District ID"]);
+            	var line1 = document.createElement("p");
+            	line1.setAttribute("class", "line_ward");
+            	line1.appendChild(document.createTextNode(AppStrings.ward + " " + ward["District ID"] + " -  " + ward["District name"] ));
          
-            item.appendChild(line1);
+            	item.appendChild(line1);
           
-            list.appendChild(item);
-            document.body.appendChild(this.createWardPanel(councillor, ward, text));
+            	list.appendChild(item);
+            	document.body.appendChild(this.createWardPanel(councillor, ward, text));
             
             }  // if item at j = id of i 
             j++;
@@ -285,13 +289,13 @@ var councillors = {
     },
     createWardPanel: function(councillor, ward, text) {
         var panel = document.createElement("div");
-        console.log("createWardPanel : ward :" + ward["District ID"] + ", counc: " + councillor["District ID"]); 
+       // console.log("createWardPanel : ward :" + ward["District ID"] + ", counc: " + councillor["District ID"]); 
         panel.setAttribute("style", "display: none");
         panel.setAttribute("id", "wardPanel"+ward["District ID"]);
         var temp = HungryFox.applyTemplate(councillor, text);
-        console.log("createWardPanel - first pass: \n" + temp);
+        //console.log("createWardPanel - first pass: \n" + temp);
         panel.innerHTML = HungryFox.applyTemplate(ward, temp);
-        console.log("\n\ncreateWardPanel - second pass: \n" + panel.innerHTML);
+        //console.log("\n\ncreateWardPanel - second pass: \n" + panel.innerHTML);
         
         return panel;
     },
@@ -299,6 +303,19 @@ var councillors = {
         var panel = document.createElement("div");
         panel.setAttribute("style", "display: none");
         panel.setAttribute("id", "panel"+councillor["District ID"]);
+        if (councillor["District ID"] === "0") {
+        // Mayor
+        	console.log("createPanel: mayor");
+        } else {
+           var str = "{\"Elected office\": \"" + AppStrings.councillor + " - " + AppStrings.ward + " " + councillor['District ID'] + "\"} " ;
+          
+           var data = JSON.parse(str);
+           var temp = HungryFox.applyTemplate(data, text); 
+           panel.innerHTML = HungryFox.applyTemplate(councillor, temp);
+   
+           return panel;
+        }
+
         panel.innerHTML = HungryFox.applyTemplate(councillor, text);
         return panel;
     },

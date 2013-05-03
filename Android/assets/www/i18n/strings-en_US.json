@@ -1,5 +1,6 @@
 {
     "councillors": "Councillors",
+    "councillor": "Councillor",
     "search": "Search",
     "phone": "Phone",
     "fax": "FAX",
@@ -17,5 +18,17 @@
     "cannotdetermine": "Cannot determine councillor for postal code: ",
     "ward": "Ward",
     "wards": "Wards",
-    "go": "Go!"
+    "go": "Go!",
+    "ward_information_str": "Ward Information",
+    "pop2011_str": "Population (2011 Census)",
+    "pop2006_str": "Population (2006 Census)",
+    "pop_growth_str": "Five year population growth",
+    "pc_gt_avg_str": "Percent greater than average ward",
+    "pc_gt_smallest_str": "Percent greater than smallest ward",
+    "pop_rank_str": "Population rank",
+    "growth_rank_str": "Population growth rank",
+    "2012_311_calls_str": "Number of 311 calls (2012)",
+    "median_age_str": "Median age",
+    "councillor_expenses_str": "Councillor expenses (2012)",
+    "years_old_str": "years"
 }

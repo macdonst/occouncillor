@@ -162,6 +162,7 @@ h3 {
 }
 
 #main li .line2, #wards li .line2 {
+	font-size: 18px;
     margin-top:8px;
     margin-bottom:0px;
     padding-left: 12px;
@@ -170,6 +171,7 @@ h3 {
 }
 
 .councillor-list li .line2 {
+	font-size: 18px;
     margin-top:4px;
     margin-bottom:0px;
     padding-left: 12px;
@@ -185,6 +187,27 @@ h3 {
     padding-bottom: 12px;
     color: #666666;
 }
+
+#main li .line_ward, #wards li .line_ward  {
+    font-size: 30px;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-top:6px;
+    padding-bottom:6px;
+    padding-left: 12px;
+    font-weight: bold;
+}
+
+.councillor-list li .line_ward, .ward-list li .line_ward {
+    font-size: 30px;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-top:6px;
+    padding-bottom:6px;
+    padding-left: 12px;
+    font-weight: bold;
+}
+
 
 #main li .line_all, #wards li .line_all  {
     font-size: 22px;
