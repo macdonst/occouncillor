@@ -77,12 +77,10 @@
                                 </td>
                                 <td class="councillorDetails">
                                     <h3 class="fullName">{{First name}} {{Last name}}</h3>
-                                    <div id="councillorTitle">
-                                    
-                                    
+                                    <div id="councillorTitle">                                                                      
                                     <p id="councillorTitle" class="councillorTitle">{{Elected office}}</p>
                                     </div>
-                                    <p class="ward">{{District name}}</p>
+                                    <p class="ward">{{district_name_set}}</p>
                                 </td>
                             </tr>
                         </table>
@@ -143,7 +141,7 @@
                                 <td class="councillorDetails">                                    
                                     <h3 class="fullName">{{ward_information_str}}</h3>
                                     <h2 class="fullName2">{{First name}} {{Last name}}</h2>
-                                    <p class="ward"> {{ward}} {{District ID}} - {{District name}} </p>
+                                    <p class="ward"> {{ward}} {{District ID}} - {{district_name_set}} </p>
                                     
                                 </td>
                             </tr>
@@ -152,6 +150,13 @@
                 </div>
                  
                 <ul class="ward-list" style="background: #FFFFFF" >
+                    <li>
+                        <a href="{{map_url_set}}">
+                            <p class="line1">{{ward_map_str}}</p>
+                            <p class="line2">{{map_url_str}}</p>
+                            <img src="icons/hdpi/web.png" class="actionIcon"/>
+                        </a>
+                    </li>
                     <li>
                         <p class="line1">{{pop2011_str}}</p>
                         <p class="line2">{{2011pop}}</p>                                               

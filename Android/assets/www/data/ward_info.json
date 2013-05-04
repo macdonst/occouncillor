@@ -10,8 +10,10 @@
 		"pop_rank": "0",
 		"2012_311_calls": "0",
 		"growth_rank": "0",
-		"median_age": "",
-		"councillor_expenses": "0"
+		"median_age": "0",
+		"councillor_expenses": "0",
+		"map_url_en": "\"\"empty\"\"",
+		"map_url_fr": "\"\"empty\"\""
 	},
 	{
 		"District ID": "19",
@@ -25,7 +27,9 @@
 		"2012_311_calls": "13,449",
 		"growth_rank": "4",
 		"median_age": "36.6",
-		"councillor_expenses": "$231,921"
+		"councillor_expenses": "$231,921",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-19-cumberland",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-19-cumberland"
 	},
 	{
 		"District ID": "2",
@@ -39,7 +43,9 @@
 		"2012_311_calls": "11,013",
 		"growth_rank": "19",
 		"median_age": "41.1",
-		"councillor_expenses": "$206,511"
+		"councillor_expenses": "$206,511",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-2-innes",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-2-innes"
 	},
 	{
 		"District ID": "17",
@@ -53,7 +59,9 @@
 		"2012_311_calls": "15,284",
 		"growth_rank": "16",
 		"median_age": "38",
-		"councillor_expenses": "$221,546"
+		"councillor_expenses": "$221,546",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-17-capital",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-17-capitale"
 	},
 	{
 		"District ID": "8",
@@ -67,7 +75,9 @@
 		"2012_311_calls": "17,021",
 		"growth_rank": "20",
 		"median_age": "42.4",
-		"councillor_expenses": "$203,627"
+		"councillor_expenses": "$203,627",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-8-college",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-8-college"
 	},
 	{
 		"District ID": "13",
@@ -81,7 +91,9 @@
 		"2012_311_calls": "13,843",
 		"growth_rank": "23",
 		"median_age": "43.4",
-		"councillor_expenses": "$216,006"
+		"councillor_expenses": "$216,006",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-13-rideau-rockcliffe",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-13-rideau"
 	},
 	{
 		"District ID": "10",
@@ -95,7 +107,9 @@
 		"2012_311_calls": "13,475",
 		"growth_rank": "6",
 		"median_age": "35.3",
-		"councillor_expenses": "$232,818"
+		"councillor_expenses": "$232,818",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-10-gloucester-southgate",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-10-gloucester"
 	},
 	{
 		"District ID": "22",
@@ -109,7 +123,9 @@
 		"2012_311_calls": "11,066",
 		"growth_rank": "1",
 		"median_age": "34.9",
-		"councillor_expenses": "$209,192"
+		"councillor_expenses": "$209,192",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-22-gloucester-south-nepean",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-22-gloucester"
 	},
 	{
 		"District ID": "9",
@@ -123,7 +139,9 @@
 		"2012_311_calls": "11,820",
 		"growth_rank": "21",
 		"median_age": "41.6",
-		"councillor_expenses": "$175,015"
+		"councillor_expenses": "$175,015",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-9-knoxdale-merivale",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-9-knoxdale"
 	},
 	{
 		"District ID": "5",
@@ -137,7 +155,9 @@
 		"2012_311_calls": "6,790",
 		"growth_rank": "8",
 		"median_age": "42.7",
-		"councillor_expenses": "$196,278"
+		"councillor_expenses": "$196,278",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-5-west-carleton-march",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-5-west-carleton"
 	},
 	{
 		"District ID": "12",
@@ -151,7 +171,9 @@
 		"2012_311_calls": "26,662",
 		"growth_rank": "12",
 		"median_age": "37.2",
-		"councillor_expenses": "$232,853"
+		"councillor_expenses": "$232,853",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-12-rideau-vanier",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-12-rideau"
 	},
 	{
 		"District ID": "3",
@@ -165,7 +187,9 @@
 		"2012_311_calls": "13,446",
 		"growth_rank": "5",
 		"median_age": "35.4",
-		"councillor_expenses": "$222,504"
+		"councillor_expenses": "$222,504",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-3-barrhaven",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-3-barrhaven"
 	},
 	{
 		"District ID": "15",
@@ -179,7 +203,9 @@
 		"2012_311_calls": "16,646",
 		"growth_rank": "10",
 		"median_age": "41.9",
-		"councillor_expenses": "$229,110"
+		"councillor_expenses": "$229,110",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-15-kitchissippi",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-15-kitchissippi"
 	},
 	{
 		"District ID": "14",
@@ -193,7 +219,9 @@
 		"2012_311_calls": "21,264",
 		"growth_rank": "11",
 		"median_age": "35.7",
-		"councillor_expenses": "$231,853"
+		"councillor_expenses": "$231,853",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-14-somerset",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-14-somerset"
 	},
 	{
 		"District ID": "23",
@@ -207,7 +235,9 @@
 		"2012_311_calls": "13,028",
 		"growth_rank": "9",
 		"median_age": "38.3",
-		"councillor_expenses": "$214,555"
+		"councillor_expenses": "$214,555",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-23-kanata-south",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-23-kanata-sud"
 	},
 	{
 		"District ID": "18",
@@ -221,7 +251,9 @@
 		"2012_311_calls": "14,983",
 		"growth_rank": "18",
 		"median_age": "39.9",
-		"councillor_expenses": "$206,417"
+		"councillor_expenses": "$206,417",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-18-alta-vista",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-18-alta-vista"
 	},
 	{
 		"District ID": "16",
@@ -235,7 +267,9 @@
 		"2012_311_calls": "15,207",
 		"growth_rank": "17",
 		"median_age": "38.7",
-		"councillor_expenses": "$206,222"
+		"councillor_expenses": "$206,222",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-16-river",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-16-riviere"
 	},
 	{
 		"District ID": "21",
@@ -249,7 +283,9 @@
 		"2012_311_calls": "8,354",
 		"growth_rank": "13",
 		"median_age": "43.5",
-		"councillor_expenses": "$199,656"
+		"councillor_expenses": "$199,656",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-21-rideau-goulbourn",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-21-rideau"
 	},
 	{
 		"District ID": "1",
@@ -263,7 +299,9 @@
 		"2012_311_calls": "13,943",
 		"growth_rank": "14",
 		"median_age": "41.1",
-		"councillor_expenses": "$212,647"
+		"councillor_expenses": "$212,647",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-1-orleans",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-1-orleans"
 	},
 	{
 		"District ID": "6",
@@ -277,7 +315,9 @@
 		"2012_311_calls": "7,210",
 		"growth_rank": "2",
 		"median_age": "38.4",
-		"councillor_expenses": "$222,050"
+		"councillor_expenses": "$222,050",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-6-stittsville-kanata-west",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-6-stittsville"
 	},
 	{
 		"District ID": "7",
@@ -291,7 +331,9 @@
 		"2012_311_calls": "11,694",
 		"growth_rank": "22",
 		"median_age": "42.9",
-		"councillor_expenses": "$236,903"
+		"councillor_expenses": "$236,903",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-7-bay",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-7-baie"
 	},
 	{
 		"District ID": "11",
@@ -305,7 +347,9 @@
 		"2012_311_calls": "10,432",
 		"growth_rank": "15",
 		"median_age": "41.8",
-		"councillor_expenses": "$221,151"
+		"councillor_expenses": "$221,151",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-11-beacon-hill-cyrville",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-11-beacon-hill"
 	},
 	{
 		"District ID": "20",
@@ -319,7 +363,9 @@
 		"2012_311_calls": "7,634",
 		"growth_rank": "7",
 		"median_age": "42.2",
-		"councillor_expenses": "$203,029"
+		"councillor_expenses": "$203,029",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-20-osgoode",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-20-osgoode"
 	},
 	{
 		"District ID": "4",
@@ -333,6 +379,8 @@
 		"2012_311_calls": "9,307",
 		"growth_rank": "3",
 		"median_age": "37.3",
-		"councillor_expenses": "$218,939"
+		"councillor_expenses": "$218,939",
+		"map_url_en": "http://ottawa.ca/en/city-hall/official-and-master-plans/ward-boundary-review/ward-4-kanata-north",
+		"map_url_fr": "http://ottawa.ca/fr/hotel-de-ville/plans-officiel-et-directeurs/examen-des-limites-de-quartiers/quartier-4-kanata-nord"
 	}
 ]

@@ -70,6 +70,10 @@ var app = {
                 if (locale.value != "fr_CA") {
                     locale.value = "en_US";
                 }
+
+//                locale.value = "fr_CA";
+                councillors.setLocal(locale.value);
+                
                 XHR("i18n/strings-"+locale.value+".json", function(data) {
                     AppStrings = JSON.parse(data);  
                     app.localize();                     
@@ -96,6 +100,7 @@ var app = {
 var councillors = {
     items: [],
     wards: [],
+    locale: "en_US",
     currentPanel: "main",
     loadCouncillors: function() {
         var that = this;
@@ -103,6 +108,10 @@ var councillors = {
             that.items = JSON.parse(data);
             that.listCouncillors();
         });
+    },
+    setLocal: function (loc) {
+    console.log("setLocal = " + loc);
+        this.locale = loc;
     },
     loadWards: function() {
         var wards = this;
@@ -132,10 +141,13 @@ var councillors = {
             var line2 = document.createElement("p");
             line2.setAttribute("class", "line2");
             
+            var ward_name_set = "ward_name_"+councillor["District ID"];           
+            councillor["district_name_set"] = AppStrings[ward_name_set];
+                                              
 			if (councillor["District ID"] === "0") {
-            	line2.appendChild(document.createTextNode(councillor["District name"]));
+            	line2.appendChild(document.createTextNode(councillor["district_name_set"]));
             } else {
-            	line2.appendChild(document.createTextNode(councillor["District name"] + " - " + AppStrings.ward + " " + councillor["District ID"] ));
+            	line2.appendChild(document.createTextNode(councillor["district_name_set"] + " - " + AppStrings.ward + " " + councillor["District ID"] ));
             }                        
             item.appendChild(line1);
             item.appendChild(line2);
@@ -156,17 +168,29 @@ var councillors = {
            
             var current = this.wards[j];
   
-            if (parseInt(current["District ID"]) == i) {   
+            if (parseInt(current["District ID"]) == i) {
+            	var councillor = this.items[j];
+            	
             	found = 1;   
 				var ward = this.wards[j];
-           
-            	var councillor = this.items[j];
+				var ward_name_set = "ward_name_"+councillor["District ID"];   
+				ward["district_name_set"] = AppStrings[ward_name_set];
+				
+                console.log("listWards() - this.locale = " + this.locale);
+                if (this.locale === "fr_CA") {
+                	ward["map_url_set"] = ward["map_url_fr"];                	
+                	
+                } else {
+                	ward["map_url_set"] = ward["map_url_en"];
+                }
+                console.log("map_url =" + ward["map_url"] );
+            	
            		//console.log("WARD = " + JSON.stringify(ward));        
             	var item = document.createElement("li");
             	item.setAttribute("id", ward["District ID"]);
             	var line1 = document.createElement("p");
             	line1.setAttribute("class", "line_ward");
-            	line1.appendChild(document.createTextNode(AppStrings.ward + " " + ward["District ID"] + " -  " + ward["District name"] ));
+            	line1.appendChild(document.createTextNode(AppStrings.ward + " " + ward["District ID"] + " -  " + ward["district_name_set"] ));
          
             	item.appendChild(line1);
           
