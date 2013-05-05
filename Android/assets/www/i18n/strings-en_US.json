@@ -21,6 +21,7 @@
     "go": "Go!",
     "ward_map_str": "Ward map",
     "ward_information_str": "Ward Information",
+    "ward_information_short_str": "Ward Info",
     "pop2011_str": "Population (2011 Census)",
     "pop2006_str": "Population (2006 Census)",
     "pop_growth_str": "Five year population growth",
