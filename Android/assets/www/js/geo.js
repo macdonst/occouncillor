@@ -17,7 +17,7 @@ var whereami = function() {
                         //councillors.showCouncillorByWard(response.objects[i].external_id);
                         var curLoc = document.getElementById("currentLocation");
                         if (wardID !== 0) {
-                            curLoc.innerText = "Ward " + wardID + " - " + wardName;
+                            curLoc.innerText = AppStrings.ward + " " + wardID + " - " + wardName;
                         } else {
                             curLoc.innerText = "wardName";
                         }
