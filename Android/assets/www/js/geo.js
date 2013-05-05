@@ -54,7 +54,7 @@ var findMe = function(postcode) {
 
 var searchCouncillor = function() {
     var postcode = document.getElementById("postcode").value.toUpperCase();
-    if (postcode !== "" && postcode !== "POSTAL CODE") {
+    if (postcode !== "" && postcode !== "POSTAL CODE" && postcode !== "CODE POSTAL") {
         findMe(postcode);
     } else {
         councillors.showCouncillorByWard(wardID);
