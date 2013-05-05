@@ -16,21 +16,18 @@ var app = {
         new FastClick(document.body);
         
         // Swipe events
-        Hammer(document.body).on("swipeleft", function() {
-            console.log("swiperight");
+        Hammer(document.body).on("swiperight", function() {
             if (councillors.currentPanel == "find") {
                 councillors.showWards();
                
-            } else if (councillors.currentPanel == "wards") {
+            } else if (councillors.currentPanel == "wards" || councillors.currentPanel.startsWith("wardPanel")) {
                 councillors.showMain();
             }
         });
-        Hammer(document.body).on("swiperight", function() {
-            console.log("swipeleft");
-            
-            if (councillors.currentPanel == "wards") {
+        Hammer(document.body).on("swipeleft", function() {
+            if (councillors.currentPanel == "wards" || councillors.currentPanel.startsWith("wardPanel")) {
                 councillors.showFind();
-            } else if (councillors.currentPanel == "main") {
+            } else if (councillors.currentPanel == "main" || councillors.currentPanel.startsWith("panel")) {
                 councillors.showWards();
             }
         });
@@ -142,9 +139,9 @@ var councillors = {
             councillor["district_name_set"] = AppStrings[ward_name_set];
                                               
 			if (councillor["District ID"] === "0") {
-            	line2.appendChild(document.createTextNode(councillor["district_name_set"]));
+            	line2.appendChild(document.createTextNode(AppStrings.city_of_ottawa));
             } else {
-            	line2.appendChild(document.createTextNode(councillor["district_name_set"] + " - " + AppStrings.ward + " " + councillor["District ID"] ));
+            	line2.appendChild(document.createTextNode(councillor["district_name_set"]));
             }                        
             item.appendChild(line1);
             item.appendChild(line2);
@@ -152,9 +149,9 @@ var councillors = {
             var line3 = document.createElement("p");
             line3.setAttribute("class", "line3");
             if (councillor["District ID"] === "0") {
-            	line3.appendChild(document.createTextNode("Mayor")); 
+            	line3.appendChild(document.createTextNode(AppStrings.ward_name_0)); 
              } else {
-            	line3.appendChild(document.createTextNode("Ward " + councillor["District ID"]  ));            
+            	line3.appendChild(document.createTextNode(AppStrings.ward + " " + councillor["District ID"]  ));            
             }
             
             item.appendChild(line3);
@@ -335,19 +332,15 @@ var councillors = {
         panel.setAttribute("style", "display: none");
         panel.setAttribute("id", "panel"+councillor["District ID"]);
         if (councillor["District ID"] === "0") {
-        // Mayor
+            // Mayor
         	console.log("createPanel: mayor");
+           councillor["Elected office"] = AppStrings.city_of_ottawa;
         } else {
-           var str = "{\"Elected office\": \"" + AppStrings.councillor + " - " + AppStrings.ward + " " + councillor['District ID'] + "\"} " ;
-          
-           var data = JSON.parse(str);
-           var temp = HungryFox.applyTemplate(data, text); 
-           panel.innerHTML = HungryFox.applyTemplate(councillor, temp);
-   
-           return panel;
+           councillor["Elected office"] = AppStrings.councillor + " - " + AppStrings.ward + " " + councillor['District ID'];
         }
-
+        
         panel.innerHTML = HungryFox.applyTemplate(councillor, text);
+   
         return panel;
     },
     showWard: function(evt) {
@@ -456,4 +449,16 @@ var XHR = function(url, success, fail) {
         }
     }
     request.send();
+}
+
+if (!String.prototype.startsWith) {
+    Object.defineProperty(String.prototype, 'startsWith', {
+        enumerable: false,
+        configurable: false,
+        writable: false,
+        value: function (searchString, position) {
+            position = position || 0;
+             return this.indexOf(searchString, position) === position;
+        }
+    });
 }
