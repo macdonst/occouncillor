@@ -21,15 +21,16 @@
             <ul id="right">
                 <li id="add" style="display: none"><a id="addPerson" href="#"><img src="icons/hdpi/addPerson.png" class="actionBarIcon" alt="Add"></a></li>
                 <li id="search" style="display: none"><a><img src="icons/hdpi/search.png" class="actionBarIcon" alt="Search"></a></li>
+                <li id="lang" class="toggleLang" style="display: none"><a>{{lang}}</a></li>
             </ul>
         </header>        
         
         <div id="tabbar" class="tabBar">            
             <table>
                 <tr>
-                    <td id="cBtn" style="border-bottom: 8px solid #2489ce">{{councillors}}</td>
-                    <td id="wBtn">{{wards}}</td>
-                    <td id="fBtn">{{search}}</td>
+                    <td id="cBtn" style="border-bottom: 8px solid #2489ce; color:black;">{{councillors}}</td>
+                    <td id="wBtn"  style="color:black;">{{wards}}</td>
+                    <td id="fBtn"  style="color:black;">{{search}}</td>
                 </tr>
             </table>            
         </div>

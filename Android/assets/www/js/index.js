@@ -64,9 +64,23 @@ var app = {
             function (locale) {
                 console.log("locale = " + locale.value);
                 var lang = "en_US";
+                
+                // check if lang has been set
+        		var storage = window.localStorage;
+        		//console.log("storage1: " + storage.lang); 
+                if (!storage.lang) {
                 // default to english if not canadian french
-                if (locale.value == "fr_CA" || locale.value == "fr_FR") { 
-                    lang = "fr_CA";
+                    
+                	if (locale.value == "fr_CA" || locale.value == "fr_FR") { 
+                      lang = "fr_CA";
+                   	} 
+                   	
+                   	storage.lang = lang; // set lang
+                   //	console.log("storage2: " + storage.lang); 
+                   	
+                } else {
+                    lang = storage.lang;  // retrieve lang
+                    //console.log("storage3: " + storage.lang); 
                 }
                 councillors.setLocal(lang);
                 XHR("i18n/strings-"+lang+".json", function(data) {
@@ -84,12 +98,37 @@ var app = {
         var tabbar = document.getElementById("tabbar");
         tabbar.innerHTML = HungryFox.applyTemplate({}, tabbar.innerHTML);
         
+       document.getElementById("cBtn").setAttribute("style", "border-bottom: 8px solid #2489ce;color: white");
+       document.getElementById("wBtn").setAttribute("style", "color: white");
+       document.getElementById("fBtn").setAttribute("style", "color: white");
+       
+        
+        var actionbar = document.getElementById("action-bar");
+        actionbar.innerHTML = HungryFox.applyTemplate({}, actionbar.innerHTML);
+        
         // bind click events
         document.getElementById("searchBtn").addEventListener('click', searchCouncillor, false);
         document.getElementById("cBtn").addEventListener('click', councillors.showMain, false);
         document.getElementById("wBtn").addEventListener('click', councillors.showWards, false);
         document.getElementById("fBtn").addEventListener('click', councillors.showFind, false);        
-    }
+    },
+    toggleLang: function() {
+               
+        var currentTimeMillis = new Date().getTime();
+        var storage = window.localStorage;
+        
+        if (!storage.ts || (currentTimeMillis-storage.ts >2000) ) {
+	        storage.ts = currentTimeMillis;
+	       
+	        if (!storage.lang || storage.lang === "en_US") {
+	           storage.lang = "fr_CA";           
+	        } else {
+	           	storage.lang = "en_US";            
+	        }
+	     	window.location.href = "index.html";
+	     }
+     },
+
 };
 
 var councillors = {
@@ -105,7 +144,7 @@ var councillors = {
         });
     },
     setLocal: function (loc) {
-    console.log("setLocal = " + loc);
+    	console.log("setLocal = " + loc);
         this.locale = loc;
     },
     loadWards: function() {
@@ -159,6 +198,9 @@ var councillors = {
             document.body.appendChild(this.createPanel(councillor, text));
         }
         main.appendChild(list);
+        
+        document.getElementById("lang").setAttribute("style", "display: block");
+        document.getElementById("lang").setAttribute("onClick", "app.toggleLang()");
     },
     listWards: function() {
         var text = document.getElementById("ward-template").innerHTML;
@@ -180,7 +222,7 @@ var councillors = {
 				var ward_name_set = "ward_name_"+councillor["District ID"];   
 				ward["district_name_set"] = AppStrings[ward_name_set];
 				
-                console.log("listWards() - this.locale = " + this.locale);
+                //console.log("listWards() - this.locale = " + this.locale);
                 if (this.locale === "fr_CA") {
                 	ward["map_url_set"] = ward["map_url_fr"];                	
                 	
