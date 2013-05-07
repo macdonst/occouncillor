@@ -271,6 +271,7 @@ var councillors = {
         document.getElementById("add").setAttribute("style", "display: block");
         document.getElementById("addPerson").setAttribute("onclick", "councillors.saveContact('" + id + "')");
         document.getElementById("search").setAttribute("style", "display: none");
+        document.getElementById("lang").setAttribute("style", "display: none");
         
         // show the back button in top bar
         document.getElementById("backIcon").setAttribute("style", "display: table-cell");
@@ -298,6 +299,7 @@ var councillors = {
         // setup the add contact button
         document.getElementById("add").setAttribute("style", "display: none");
         document.getElementById("search").setAttribute("style", "display: none");
+        document.getElementById("lang").setAttribute("style", "display: block");
         
         // hide the back button in top bar
         document.getElementById("backIcon").setAttribute("style", "display: none");
@@ -333,6 +335,7 @@ var councillors = {
         document.getElementById("cBtn").setAttribute("style", "border-bottom: 8px solid black");
         document.getElementById("wBtn").setAttribute("style", "border-bottom: 8px solid #2489ce");
         document.getElementById("fBtn").setAttribute("style", "border-bottom: 8px solid black");
+        document.getElementById("lang").setAttribute("style", "display: none");
         
         window.scrollTo(0,0);
     },
@@ -356,6 +359,7 @@ var councillors = {
         document.getElementById("cBtn").setAttribute("style", "border-bottom: 8px solid black");
         document.getElementById("wBtn").setAttribute("style", "border-bottom: 8px solid black");
         document.getElementById("fBtn").setAttribute("style", "border-bottom: 8px solid #2489ce");
+        document.getElementById("lang").setAttribute("style", "display: none");
     },
     createWardPanel: function(councillor, ward, text) {
         var panel = document.createElement("div");
