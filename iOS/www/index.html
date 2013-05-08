@@ -6,8 +6,9 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" media='screen and (max-width: 480px)' type="text/css" href="css/styles.css" />
         <link rel='stylesheet' media='screen and (min-width: 481px)' href='css/styles-hdpi.css' />
-        <link rel="stylesheet" media='screen and (max-width: 480px)' type="text/css" href="css/actionbar.css"/>
+        <link rel="stylesheet" media='screen and (max-width: 480px)' type="text/css" href="css/actionbar.css" />
         <link rel='stylesheet' media='screen and (min-width: 481px)' href='css/actionbar-hdpi.css' />
+        <title>Hello World</title>
     </head>
     <body>
         <header id="action-bar">
@@ -27,6 +28,7 @@
             <table>
                 <tr>
                     <td id="cBtn" style="border-bottom: 8px solid #2489ce">{{councillors}}</td>
+                    <td id="wBtn">{{wards}}</td>
                     <td id="fBtn">{{search}}</td>
                 </tr>
             </table>            
@@ -35,8 +37,10 @@
         <div id="main">
         </div>
         
+        <div id="wards" style="display:none">
+        </div>
+        
         <div id="find" style="display:none">
-            <br/>
             <p class="addressLine">{{curloc}}</p>
             <p id="currentLocation">
                 {{unable}}
@@ -45,7 +49,7 @@
             <input id="postcode" class="postalCodeInput" value="{{postalcode}}" type="text"
                 onclick="this.value='';this.onclick='';this.style.color='#000';"/>
             <br/>
-            <button id="searchBtn" class="holoBtn">{{search}}</button>
+            <button id="searchBtn" class="holoBtn">{{go}}</button>
         </div>
         
         <script type="text/javascript" src="cordova-2.5.0rc1.js"></script>
@@ -69,8 +73,10 @@
                                 </td>
                                 <td class="councillorDetails">
                                     <h3 class="fullName">{{First name}} {{Last name}}</h3>
-                                    <p class="councillorTitle">{{Elected office}}</p>
-                                    <p class="ward">{{District name}}</p>
+                                    <div id="councillorTitle">                                                                      
+                                    <p id="councillorTitle" class="councillorTitle">{{Elected office}}</p>
+                                    </div>
+                                    <p class="ward">{{district_name_set}}</p>
                                 </td>
                             </tr>
                         </table>
@@ -99,7 +105,7 @@
                         <a href="javascript:window.open('{{URL}}','_blank', 'location=yes')">
                             <p class="line_all">{{ottawaweb}}</p>
                             <p class="line2web">{{URL}}</p>
-                            <!-- img src="icons/hdpi/web.png" class="actionIcon"/ -->
+                            <img src="icons/hdpi/web.png" class="actionIcon"/>
                         </a>
                     </li>
                     <li>
@@ -119,5 +125,81 @@
                 </ul>
             </div>
         </div>
+        <div id="ward-template" class="ward-template" style="display:none">
+            <div id="wrapper">
+                <div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="{{Photo URL}}" class="councillorPic" align="left">
+                                </td>
+                                <td class="councillorDetails">                                    
+                                    <h2 class="fullName">{{ward_information_short_str}}</h2>
+                                    <h2 class="fullName2">{{First name}} {{Last name}}</h2>
+                                    <p class="ward"> {{ward}} {{District ID}} - {{district_name_set}} </p>
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                 
+                <ul class="ward-list" style="background: #FFFFFF" >
+                    <li>
+                        <a href="javascript:window.open('{{map_url_set}}','_blank', 'location=yes')">
+                            <p class="line1">{{ward_map_str}}</p>
+                            <p class="line2">{{map_url_str}}</p>
+                            <img src="icons/hdpi/web.png" class="actionIcon"/>
+                        </a>
+                    </li>
+                    <li>
+                        <p class="line1">{{pop2011_str}}</p>
+                        <p class="line2">{{2011pop}}</p>                                               
+                    </li>
+<!--                    <li>
+                        <p class="line1">{{pop2006_str}}</p>
+                        <p class="line2">{{2006pop}}</p>                                               
+                    </li>-->
+                    <li>
+                        <p class="line1">{{pop_rank_str}}</p>
+                        <p class="line2">{{pop_rank}}</p>
+                    </li>
+                    <li>
+                        <p class="line1">{{pop_growth_str}}</p>
+                        <p class="line2">{{pop_growth}}</p>
+                    </li> 
+                    
+                    <li>
+                        <p class="line1">{{growth_rank_str}}</p>
+                        <p class="line2">{{growth_rank}}</p>
+                    </li>
+                    
+                     <li>
+                        <p class="line1">{{pc_gt_avg_str}}</p>
+                        <p class="line2">{{pc_gt_avg}}</p>
+                    </li>
+                    <li>
+                        <p class="line1">{{pc_gt_smallest_str}}</p>
+                        <p class="line2">{{pc_gt_smallest}}</p>
+                    </li>
+                     <li>
+                        <p class="line1">{{median_age_str}}</p>
+                        <p class="line2">{{median_age}} {{years_old_str}}</p>
+                    </li>  
+                    <li>
+                        <p class="line1">{{councillor_expenses_str}}</p>
+                        <p class="line2">{{councillor_expenses}}</p>
+                    </li>                   
+                                 
+                    <li>
+                        <p class="line1">{{2012_311_calls_str}}</p>
+                        <p class="line2">{{2012_311_calls}}</p>
+                    </li>                   
+                                      
+                </ul>
+                
+              </div>
+         </div>
     </body>
 </html>
