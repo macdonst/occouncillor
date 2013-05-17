@@ -4,9 +4,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" media='screen and (max-width: 699px)' type="text/css" href="css/styles.css" />
+        <link rel="stylesheet" media='screen and (max-width: 479px)' type="text/css" href="css/styles.css" />
+        <link rel="stylesheet" media='screen and (min-width: 480px) and (max-width: 699px)' type="text/css" href="css/styles-mdpi.css" />
         <link rel='stylesheet' media='screen and (min-width: 700px)' href='css/styles-hdpi.css' />
-        <link rel="stylesheet" media='screen and (max-width: 699px)' type="text/css" href="css/actionbar.css" />
+        <link rel="stylesheet" media='screen and (max-width: 479px)' type="text/css" href="css/actionbar.css" />
+        <link rel="stylesheet" media='screen and (min-width: 480px) and (max-width: 699px)' type="text/css" href="css/actionbar-mdpi.css" />
         <link rel='stylesheet' media='screen and (min-width: 700px)' href='css/actionbar-hdpi.css' />
         <title>Hello World</title>
     </head>
@@ -46,12 +48,12 @@
             <p id="currentLocation">
                 {{unable}}
             </p>
-            <p>&nbsp;</p>
+           <!-- <p>&nbsp;</p> -->
             <p class="addressLine">{{postalcode}}</p>
             <input id="postcode" class="postalCodeInput" value="{{postalcode}}" type="text"
                 onclick="this.value='';this.onclick='';this.style.color='#000';"/>
             <br/>
-            <p>&nbsp;</p>
+            <!-- <p>&nbsp;</p> -->
             <button id="searchBtn" class="holoBtn">{{go}}</button>
             <!--<button id="searchBtn" class="holoBtn">{{search}}</button>-->
         </div>
