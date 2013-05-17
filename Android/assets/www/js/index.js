@@ -105,7 +105,7 @@ var councillors = {
         });
     },
     setLocal: function (loc) {
-    console.log("setLocal = " + loc);
+    	console.log("setLocal = " + loc);
         this.locale = loc;
     },
     loadWards: function() {
@@ -180,7 +180,7 @@ var councillors = {
 				var ward_name_set = "ward_name_"+councillor["District ID"];   
 				ward["district_name_set"] = AppStrings[ward_name_set];
 				
-                console.log("listWards() - this.locale = " + this.locale);
+                //console.log("listWards() - this.locale = " + this.locale);
                 if (this.locale === "fr_CA") {
                 	ward["map_url_set"] = ward["map_url_fr"];                	
                 	
@@ -214,6 +214,10 @@ var councillors = {
             srcElement = srcElement.parentNode;
         }
         councillors.showCouncillorByWard(srcElement.id);
+
+        
+        document.getElementById("left").removeEventListener('click', councillors.showWards, false);        
+        document.getElementById("left").addEventListener('click', councillors.showMain, false);
     }, 
     showCouncillorByWard: function(id) {
         var panel = document.getElementById("panel"+id);
@@ -350,6 +354,8 @@ var councillors = {
             srcElement = srcElement.parentNode;
         }
         councillors.showWardById(srcElement.id);
+        document.getElementById("left").removeEventListener('click', councillors.showMain, false);
+        document.getElementById("left").addEventListener('click', councillors.showWards, false);
     }, 
     showWardById: function(id) {
         var panel = document.getElementById("wardPanel"+id);
