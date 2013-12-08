@@ -2,9 +2,9 @@ var wardID = 0;
 var wardName = "";
 
 var whereami = function() {
-    //console.log("whereami called");
+    console.log("whereami called");
     navigator.geolocation.getCurrentPosition(function(position) {
-        //console.log("got position");
+        console.log("got position");
         XHR("http://represent.opennorth.ca/boundaries/?contains=" + 
             position.coords.latitude + "," + position.coords.longitude, function(data) {
                 var response = JSON.parse(data);
@@ -17,9 +17,9 @@ var whereami = function() {
                         //councillors.showCouncillorByWard(response.objects[i].external_id);
                         var curLoc = document.getElementById("currentLocation");
                         if (wardID !== 0) {
-                            curLoc.innerText = AppStrings.ward + " " + wardID + " - " + wardName;
+                            curLoc.textContent = AppStrings.ward + " " + wardID + " - " + wardName;
                         } else {
-                            curLoc.innerText = "wardName";
+                            curLoc.textContent = "wardName";
                         }
                         break;
                     }                        
