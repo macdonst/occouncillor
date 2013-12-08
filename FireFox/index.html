@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" media='screen and (max-width: 479px)' type="text/css" href="css/styles.css" />
+        <link rel="stylesheet" media='screen and (min-width: 480px) and (max-width: 699px)' type="text/css" href="css/styles-mdpi.css" />
+        <link rel='stylesheet' media='screen and (min-width: 700px)' href='css/styles-hdpi.css' />
+        <link rel="stylesheet" media='screen and (max-width: 479px)' type="text/css" href="css/actionbar.css" />
+        <link rel="stylesheet" media='screen and (min-width: 480px) and (max-width: 699px)' type="text/css" href="css/actionbar-mdpi.css" />
+        <link rel='stylesheet' media='screen and (min-width: 700px)' href='css/actionbar-hdpi.css' />
+        <title>Hello World</title>
+    </head>
+    <body>
+        <header id="action-bar">
+            <ul id="left">
+                <li><a id="backIcon" style="display: none"><img src="img/action-up.png" class="upIcon" alt="Up"></a></li>
+                <li><a><img src="img/app-logo.png" class="appIcon" alt="Home"></a></li>
+                <li><a>OC Councillor</a></li>
+            </ul>
+        
+            <ul id="right">
+                <li id="add" style="display: none"><a id="addPerson" href="#"><img src="icons/hdpi/addPerson.png" class="actionBarIcon" alt="Add"></a></li>
+                <li id="search" style="display: none"><a><img src="icons/hdpi/search.png" class="actionBarIcon" alt="Search"></a></li>
+            </ul>
+        </header>        
+        
+        <div id="tabbar" class="tabBar">            
+            <table>
+                <tr>
+                    <td id="cBtn" style="border-bottom: 8px solid #2489ce">{{councillors}}</td>
+                    <td id="wBtn">{{wards}}</td>
+                    <td id="fBtn">{{search}}</td>
+                </tr>
+            </table>            
+        </div>
+        
+        <div id="main">
+        </div>
+        
+        <div id="wards" style="display:none">
+        </div>
+        
+        <div id="find" style="display:none">
+            <br/>
+            <p class="addressLine">{{curloc}}</p>
+            <p id="currentLocation">
+                {{unable}}
+            </p>
+           <!-- <p>&nbsp;</p> -->
+            <p class="addressLine">{{postalcode}}</p>
+            <input id="postcode" class="postalCodeInput" value="{{postalcode}}" type="text"
+                onclick="this.value='';this.onclick='';this.style.color='#000';"/>
+            <br/>
+            <!-- <p>&nbsp;</p> -->
+            <button id="searchBtn" class="holoBtn">{{go}}</button>
+            <!--<button id="searchBtn" class="holoBtn">{{search}}</button>-->
+        </div>
+        
+        <!-- script type="text/javascript" src="cordova-2.5.0rc1.js"></script -->
+        <script type="text/javascript" src="js/lib/fastclick.js"></script>
+        <script type="text/javascript" src="js/lib/hammer.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/geo.js"></script>
+        <script type="text/javascript">
+            console.log("calling app init");
+            app.initialize();
+        </script>
+        
+        <div id="councillor-template" class="councillor-template" style="display: none">
+            <div id="wrapper">
+                <div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td width=100 height=100>
+                                    <img src="{{Photo URL}}" class="councillorPic" align="left">
+                                </td>
+                                <td class="councillorDetails">
+                                    <h3 class="fullName">{{First name}} {{Last name}}</h3>
+                                    <div id="councillorTitle">                                                                      
+                                    <p id="councillorTitle" class="councillorTitle">{{Elected office}}</p>
+                                    </div>
+                                    <p class="ward">{{district_name_set}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <ul class="councillor-list" style="background: #FFFFFF">
+                    <li>
+                        <a href="tel:{{Phone}}">
+                            <p class="line1">{{phone}}</p>
+                            <p class="line2">{{Phone}}</p>
+                            <img src="icons/hdpi/phone.png" class="actionIcon"/>
+                        </a>
+                    </li>
+                    <li>
+                        <p class="line1">{{fax}}</p>
+                        <p class="line2">{{Fax}}</p>
+                    </li>
+                    <li>
+                        <a href="mailto:{{Email}}">
+                            <p class="line1">{{email}}</p>
+                            <p class="line2">{{Email}}</p>
+                            <img src="icons/hdpi/mail.png" class="actionIcon"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="window.open('{{URL}}')">
+                            <p class="line_all">{{ottawaweb}}</p>
+                            <p class="line2web">{{URL}}</p>
+                            <img src="icons/hdpi/web.png" class="actionIcon"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="window.open('{{Personal URL}}')">
+                            <p class="line1">{{personalweb}}</p>
+                            <p class="line2">{{Personal URL}}</p>
+                            <img src="icons/hdpi/web.png" class="actionIcon"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="window.open('{{Twitter}}')">
+                            <p class="line1">{{twitter}}</p>
+                            <p class="line2">{{Twitter}}</p>
+                            <img src="icons/hdpi/twitter.png" class="actionIcon"/>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="ward-template" class="ward-template" style="display:none">
+            <div id="wrapper">
+                <div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="{{Photo URL}}" class="councillorPic" align="left">
+                                </td>
+                                <td class="councillorDetails">                                    
+                                    <h2 class="fullName">{{ward_information_short_str}}</h2>
+                                    <h2 class="fullName2">{{First name}} {{Last name}}</h2>
+                                    <p class="ward"> {{ward}} {{District ID}} - {{district_name_set}} </p>
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                 
+                <ul class="ward-list" style="background: #FFFFFF" >
+                    <li>
+                        <a href="#" onclick="window.open('{{map_url_set}}')">
+                            <p class="line1">{{ward_map_str}}</p>
+                            <p class="line2">{{map_url_str}}</p>
+                            <img src="icons/hdpi/web.png" class="actionIcon"/>
+                        </a>
+                    </li>
+                    <li>
+                        <p class="line1">{{pop2011_str}}</p>
+                        <p class="line2">{{2011pop}}</p>                                               
+                    </li>
+<!--                    <li>
+                        <p class="line1">{{pop2006_str}}</p>
+                        <p class="line2">{{2006pop}}</p>                                               
+                    </li>-->
+                    <li>
+                        <p class="line1">{{pop_rank_str}}</p>
+                        <p class="line2">{{pop_rank}}</p>
+                    </li>
+                    <li>
+                        <p class="line1">{{pop_growth_str}}</p>
+                        <p class="line2">{{pop_growth}}</p>
+                    </li> 
+                    
+                    <li>
+                        <p class="line1">{{growth_rank_str}}</p>
+                        <p class="line2">{{growth_rank}}</p>
+                    </li>
+                    
+                     <li>
+                        <p class="line1">{{pc_gt_avg_str}}</p>
+                        <p class="line2">{{pc_gt_avg}}</p>
+                    </li>
+                    <li>
+                        <p class="line1">{{pc_gt_smallest_str}}</p>
+                        <p class="line2">{{pc_gt_smallest}}</p>
+                    </li>
+                     <li>
+                        <p class="line1">{{median_age_str}}</p>
+                        <p class="line2">{{median_age}} {{years_old_str}}</p>
+                    </li>  
+                    <li>
+                        <p class="line1">{{councillor_expenses_str}}</p>
+                        <p class="line2">{{councillor_expenses}}</p>
+                    </li>                   
+                                 
+                    <li>
+                        <p class="line1">{{2012_311_calls_str}}</p>
+                        <p class="line2">{{2012_311_calls}}</p>
+                    </li>                   
+                                      
+                </ul>
+                
+              </div>
+         </div>
+    </body>
+</html>
